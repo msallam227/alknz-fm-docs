@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>ALKZN Portal — How to Use</title>
+  <meta name="description" content="How to use the ALKNZ Fund Manager Portal: Admin + Fund Manager workflows, features, and Chrome Extension."/>
+  <link rel="stylesheet" href="assets/style.css"/>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <span class="brand-badge" aria-hidden="true"></span>
+        <span>ALKNZ Portal</span>
+        <span class="pill"><span class="dot"></span>feature reference</span>
+      </div>
+      <nav>
+        <a href="index.html">Overview</a>
+        <a href="admin.html">Admin</a>
+        <a href="fund-manager.html">Fund Manager</a>
+        <a href="chrome-extension.html">Chrome Extension</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <div class="kicker">Internal docs</div>
+        <h1>How to use the<br/>Fund Manager Portal</h1>
+        <p class="sub">
+          This guide explains what each module does, what each role can see, and how the Chrome Extension
+          feeds investor research into the portal.
+        </p>
+
+        <div class="btn-row">
+          <a class="btn primary" target="_blank" rel="noopener noreferrer" href="https://alknz-web.onrender.com/login">Open Portal Login</a>
+          <a class="btn" target="_blank" rel="noopener noreferrer" href="https://github.com/msallam227/alknz-fm-portal">View GitHub Repo</a>
+          <a class="btn ghost" target="_blank" rel="noopener noreferrer" href="https://alknz-chrome-extension.vercel.app/index.html">Extension Docs Style Ref</a>
+        </div>
+
+        <div class="hr"></div>
+
+        <div class="callout">
+          <div class="tiny">
+            The portal is role-based: Admin has global visibility across all funds/users/investors.
+            Fund Managers only see data for funds assigned to them (fully isolated).
+          </div>
+        </div>
+      </div>
+
+      <div class="card pad">
+        <div class="kicker">Quick start</div>
+        <h2>Start here (60 seconds)</h2>
+        <ul>
+          <li>Open <code>/login</code> and sign in with a demo role.</li>
+          <li>Admins: confirm Users/Funds/Assignments are configured.</li>
+          <li>Fund Managers: select a fund in the header, then operate within the 7 tabs.</li>
+          <li>Use the Chrome Extension to capture investors and review them in <b>Research Capture</b>.</li>
+        </ul>
+
+        <div class="hr"></div>
+
+        <h3>Demo accounts</h3>
+        <div class="grid" style="margin-top:12px">
+          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
+            <div class="badge success">Admin</div>
+            <p style="margin-top:10px">
+              Email: <code>admin@demo.alknz.io</code><br/>
+              Password: <code>Demo@Admin1</code>
+            </p>
+            <div class="btn-row">
+              <button class="btn small" data-copy="admin@demo.alknz.io">Copy Email</button>
+              <button class="btn small" data-copy="Demo@Admin1">Copy Password</button>
+            </div>
+          </div>
+
+          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
+            <div class="badge success">Fund Manager</div>
+            <p style="margin-top:10px">
+              Email: <code>sara@demo.alknz.io</code><br/>
+              Password: <code>Demo@FM2024</code>
+            </p>
+            <div class="btn-row">
+              <button class="btn small" data-copy="sara@demo.alknz.io">Copy Email</button>
+              <button class="btn small" data-copy="Demo@FM2024">Copy Password</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card pad col-4" style="background:rgba(8,15,27,.45)">
+        <h3>Admin Dashboard</h3>
+        <p>Global health check + governance: Users, Funds, Assignments, All Investors, Duplicate Detection, Requests, Analytics, Feedback.</p>
+        <div class="btn-row">
+          <a class="btn small" href="admin.html">Open Admin Guide</a>
+        </div>
+      </div>
+
+      <div class="card pad col-4" style="background:rgba(8,15,27,.45)">
+        <h3>Fund Manager Dashboard</h3>
+        <p>Fund-scoped execution: Capital Overview, Tasks, Investor Profiles, Pipeline, Comms, Research Capture, Personas.</p>
+        <div class="btn-row">
+          <a class="btn small" href="fund-manager.html">Open FM Guide</a>
+        </div>
+      </div>
+
+      <div class="card pad col-4" style="background:rgba(8,15,27,.45)">
+        <h3>Chrome Extension</h3>
+        <p>Capture investor profiles from the web and send them into the portal’s Research Capture flow.</p>
+        <div class="btn-row">
+          <a class="btn small" href="chrome-extension.html">Open Extension Guide</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div>© 2026 ALKNZ Ventures — Internal Guide</div>
+      <div>Login: <a target="_blank" rel="noopener noreferrer" href="https://alknz-web.onrender.com/login">alknz-web.onrender.com/login</a></div>
+    </footer>
+  </main>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

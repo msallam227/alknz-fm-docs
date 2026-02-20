@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>ALKZN Portal — Admin Guide</title>
+  <meta name="description" content="Admin dashboard feature reference for the ALKNZ Fund Manager Portal."/>
+  <link rel="stylesheet" href="assets/style.css"/>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <span class="brand-badge" aria-hidden="true"></span>
+        <span>ALKNZ Portal</span>
+        <span class="pill"><span class="dot"></span>admin</span>
+      </div>
+      <nav>
+        <a href="index.html">Overview</a>
+        <a href="admin.html">Admin</a>
+        <a href="fund-manager.html">Fund Manager</a>
+        <a href="chrome-extension.html">Chrome Extension</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <div class="kicker">Admin dashboard</div>
+        <h1>Admin Feature<br/>Reference</h1>
+        <p class="sub">
+          Admin has full visibility across all funds, users, and investors. No data is hidden in Admin view.
+        </p>
+
+        <div class="btn-row">
+          <a class="btn primary" target="_blank" rel="noopener noreferrer" href="https://alknz-web.onrender.com/login">Open Portal Login</a>
+          <button class="btn" data-copy="admin@demo.alknz.io">Copy Admin Email</button>
+          <button class="btn" data-copy="Demo@Admin1">Copy Admin Password</button>
+        </div>
+
+        <div class="hr"></div>
+
+        <div class="callout">
+          <div class="tiny">
+            Admin login: <code>admin@demo.alknz.io</code> / <code>Demo@Admin1</code>
+          </div>
+        </div>
+      </div>
+
+      <div class="card pad">
+        <div class="kicker">Modules</div>
+        <h2>Admin modules</h2>
+        <ul>
+          <li>Dashboard</li>
+          <li>Users</li>
+          <li>Funds</li>
+          <li>Assignments</li>
+          <li>All Investors</li>
+          <li>Duplicate Detection</li>
+          <li>Investor Requests</li>
+          <li>Personas Analytics</li>
+          <li>Feedback Responses</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 1 Dashboard -->
+    <section class="grid" id="dashboard">
+      <div class="card pad col-12">
+        <div class="kicker">1. Dashboard</div>
+        <h2>Platform-wide health check</h2>
+        <p>The landing screen after admin login. A real-time platform-wide overview.</p>
+
+        <div class="grid" style="margin-top:12px">
+          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
+            <h3>What you see</h3>
+            <ul>
+              <li><b>4 KPI cards</b>: Total Investors, Active Funds, Team Members, Aggregate Committed Capital</li>
+              <li><b>Fund health table</b>: fund name, assigned manager, investor count, % to close</li>
+              <li>Real-time updates as investors move through the pipeline</li>
+            </ul>
+          </div>
+          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
+            <h3>Why it matters</h3>
+            <ul>
+              <li>Instant visibility into fundraising progress across the entire platform</li>
+              <li>Quickly spot stalled funds or pipeline bottlenecks</li>
+              <li>Validate whether team activity is translating into committed capital</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 Users -->
+    <section class="grid" id="users">
+      <div class="card pad col-12">
+        <div class="kicker">2. Users</div>
+        <h2>Manage fund manager accounts</h2>
+
+        <div class="grid" style="margin-top:12px">
+          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
+            <h3>What you see</h3>
+            <ul>
+              <li>Table: name, email, role, status (Active/Inactive), last login timestamp</li>
+            </ul>
+          </div>
+          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
+            <h3>What you can do</h3>
+            <ul>
+              <li><b>Create User</b>: name + email → temp password shown once → user sets password on first login</li>
+              <li><b>Deactivate</b>: toggle Active off to block login without deleting data</li>
+              <li><b>Reset password</b>: generate a new temp password any time</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 Funds -->
+    <section class="grid" id="funds">
+      <div class="card pad col-12">
+        <div class="kicker">3. Funds</div>
+        <h2>Create and configure SPVs and funds</h2>
+        <p>Each fund is a fully isolated environment.</p>
+
+        <div class="grid" style="margin-top:12px">
+          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
+            <h3>What you see</h3>
+            <ul>
+              <li>Card grid: name, type, currency, target raise, assigned managers</li>
+            </ul>
+          </div>
+          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
+            <h3>What you can do</h3>
+            <ul>
+              <li><b>Create Fund</b>: name, type (SPV/Fund), currency, target raise, close date, thesis, sectors, regions</li>
+              <li><b>Edit Fund</b>: update any field; changes apply immediately</li>
+              <li><b>Auto pipeline</b>: creating a fund provisions all 13 pipeline stages automatically</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 Assignments -->
+    <section class="grid" id="assignments">
+      <div class="card pad col-12">
+        <div class="kicker">4. Assignments</div>
+        <h2>Map fund managers to funds</h2>
+        <p>Controls exactly what each user can see.</p>
+
+        <div class="grid" style="margin-top:12px">
+          <div class="card pad col-12" style="background:rgba(8,15,27,.45)">
+            <h3>How it works</h3>
+            <ul>
+              <li>Grid of funds (rows) × managers (columns)</li>
+              <li>Check a cell to grant access; one manager can be assigned to multiple funds</li>
+              <li>Data is isolated: managers only see assigned funds</li>
+              <li>Changes apply immediately (no logout required)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 All Investors -->
+    <section class="grid" id="all-investors">
+      <div class="card pad col-12">
+        <div class="kicker">5. All Investors</div>
+        <h2>Unified investor view across all funds</h2>
+
+        <div class="grid" style="margin-top:12px">
+          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
+            <h3>What you see</h3>
+            <ul>
+              <li>Columns: name, fund, investor type, nationality, stage, relationship strength, expected ticket</li>
+              <li>Relationship strength is colour-coded: cold / warm / direct</li>
+            </ul>
+          </div>
+          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
+            <h3>What you can do</h3>
+            <ul>
+              <li><b>Search</b>: name, firm, email</li>
+              <li><b>Filter</b>: fund, stage, nationality, investor type, relationship strength</li>
+              <li><b>Open profile</b>: click any row for read-only drawer</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 Duplicate Detection -->
+    <section class="grid" id="duplicate-detection">
+      <div class="card pad col-12">
+        <div class="kicker">6. Duplicate Detection</div>
+        <h2>Finds investors across multiple funds</h2>
+
+        <div class="grid" style="margin-top:12px">
+          <div class="card pad col-12" style="background:rgba(8,15,27,.45)">
+            <h3>How it works</h3>
+            <ul>
+              <li>Fuzzy matching across: (1) name, (2) emails, (3) LinkedIn URLs</li>
+              <li>Shows suspected pairs with confidence score (0–100%)</li>
+              <li><b>Merge</b>: pick a “winner”; preserves tasks, call logs, pipeline history, and interactions</li>
+              <li><b>Dismiss</b>: mark as not a true duplicate to remove from queue</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 Investor Requests -->
+    <section class="grid" id="investor-requests">
+      <div class="card pad col-12">
+        <div class="kicker">7. Investor Requests</div>
+        <h2>Queue from Chrome Extension captures</h2>
+
+        <div class="grid" style="margin-top:12px">
+          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
+            <h3>What you see</h3>
+            <ul>
+              <li>Card: capturing member, source URL, capture date, extracted fields</li>
+              <li>Status: Pending / Approved / Rejected</li>
+            </ul>
+          </div>
+          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
+            <h3>What you can do</h3>
+            <ul>
+              <li><b>Approve</b>: adds investor to selected fund instantly</li>
+              <li><b>Reject</b>: discard (optional reason), retained in archive for audit</li>
+              <li><b>Filter</b>: All / Pending / Approved / Rejected</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 Personas Analytics -->
+    <section class="grid" id="personas-analytics">
+      <div class="card pad col-12">
+        <div class="kicker">8. Personas Analytics</div>
+        <h2>Platform-wide persona coverage</h2>
+
+        <div class="grid" style="margin-top:12px">
+          <div class="card pad col-12" style="background:rgba(8,15,27,.45)">
+            <h3>What you see</h3>
+            <ul>
+              <li>KPI cards: total personas, investors with 50%+ match, average match score</li>
+              <li>Per-fund table: persona count and % matched at 50%+</li>
+              <li>Persona leaderboard ranked by matched investor count</li>
+              <li>Unmatched pool: investors below 50% on all personas (signals for new personas)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9 Feedback Responses -->
+    <section class="grid" id="feedback">
+      <div class="card pad col-12">
+        <div class="kicker">9. Feedback Responses</div>
+        <h2>User testing feedback (admins + fund managers)</h2>
+
+        <div class="grid" style="margin-top:12px">
+          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
+            <h3>What you see</h3>
+            <ul>
+              <li>Stats: response count, avg intuitiveness (1–5), % requesting more AI</li>
+              <li>Table: submitter, role, date, score, comment preview; expand for full response</li>
+            </ul>
+          </div>
+          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
+            <h3>What you can do</h3>
+            <ul>
+              <li><b>Filter</b>: role, date range, keyword search</li>
+              <li><b>Export CSV</b>: download all responses</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div>© 2026 ALKNZ Ventures — Admin Guide</div>
+      <div><a href="fund-manager.html">Next: Fund Manager Guide →</a></div>
+    </footer>
+  </main>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

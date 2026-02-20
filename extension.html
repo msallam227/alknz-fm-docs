@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>ALKZN Portal — Chrome Extension Guide</title>
+  <meta name="description" content="How to install and use the ALKNZ Chrome Extension (Manifest V3) to capture investors into the portal."/>
+  <link rel="stylesheet" href="assets/style.css"/>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <span class="brand-badge" aria-hidden="true"></span>
+        <span>ALKNZ Portal</span>
+        <span class="pill"><span class="dot"></span>chrome extension</span>
+      </div>
+      <nav>
+        <a href="index.html">Overview</a>
+        <a href="admin.html">Admin</a>
+        <a href="fund-manager.html">Fund Manager</a>
+        <a href="chrome-extension.html">Chrome Extension</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <div class="kicker">ALKNZ-Extension-v12</div>
+        <h1>Chrome Extension<br/>How it works</h1>
+        <p class="sub">
+          Captures investor profiles from the web and sends them to the portal for review in
+          <b>Research Capture</b> (Fund Manager) and <b>Investor Requests</b> (Admin).
+        </p>
+
+        <div class="btn-row">
+          <a class="btn primary" target="_blank" rel="noopener noreferrer" href="https://alknz-web.onrender.com/login">Open Portal Login</a>
+          <a class="btn" target="_blank" rel="noopener noreferrer" href="https://github.com/msallam227/alknz-fm-portal">Portal Repo</a>
+          <a class="btn ghost" target="_blank" rel="noopener noreferrer" href="https://alknz-chrome-extension.vercel.app/index.html">Extension Docs (reference)</a>
+        </div>
+
+        <div class="hr"></div>
+
+        <div class="callout">
+          <div class="tiny">
+            Folder: <code>ALKNZ-Extension-v12/</code> • Chrome • Manifest V3
+          </div>
+        </div>
+      </div>
+
+      <div class="card pad">
+        <div class="kicker">Purpose</div>
+        <h2>One clean pipeline</h2>
+        <ul>
+          <li>Capture from LinkedIn and any webpage</li>
+          <li>Enrich with notes + relationship context</li>
+          <li>Upload to portal → review → accept into a specific fund</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Install -->
+    <section class="grid">
+      <div class="card pad col-12">
+        <div class="kicker">Install</div>
+        <h2>Load unpacked extension</h2>
+        <ol style="margin:10px 0 0; padding-left:18px; color:var(--muted)">
+          <li>Open <code>chrome://extensions/</code></li>
+          <li>Enable <b>Developer Mode</b> (top-right)</li>
+          <li>Click <b>Load unpacked</b> → select <code>ALKNZ-Extension-v12/</code></li>
+          <li>Pin the ALKNZ icon to toolbar</li>
+          <li>Right-click icon → <b>Options</b> → set Backend URL → log in with portal credentials</li>
+          <li>Click <b>Test Connection</b> → should show “Connected ✓”</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Capture flow -->
+    <section class="grid">
+      <div class="card pad col-12">
+        <div class="kicker">Capture Flow</div>
+        <h2>From web → portal → fund</h2>
+        <ol style="margin:10px 0 0; padding-left:18px; color:var(--muted)">
+          <li>Open a LinkedIn profile / company page (or any investor bio page)</li>
+          <li>Click ALKNZ icon → side panel opens</li>
+          <li>Extension auto-extracts: name, job title, firm, LinkedIn URL</li>
+          <li>Add notes + relationship context + missing fields</li>
+          <li>Click <b>Upload to Portal</b></li>
+          <li>Portal → <b>Research Capture</b> (FM) → capture appears as pending</li>
+          <li>Select a fund → click <b>Accept</b> → investor created and profile opens automatically</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- What it captures -->
+    <section class="grid">
+      <div class="card pad col-12">
+        <div class="kicker">What it captures</div>
+        <h2>Fields</h2>
+        <table class="table" style="margin-top:10px">
+          <thead>
+            <tr><th>Field</th><th>Source</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Full name</td><td>Page text / LinkedIn header</td></tr>
+            <tr><td>Job title</td><td>LinkedIn headline</td></tr>
+            <tr><td>Firm / Organisation</td><td>LinkedIn company or page title</td></tr>
+            <tr><td>LinkedIn URL</td><td>Current page URL</td></tr>
+            <tr><td>Email addresses</td><td>Visible contact info on page</td></tr>
+            <tr><td>Phone number</td><td>Visible contact info on page</td></tr>
+            <tr><td>Notes</td><td>Manually entered in side panel</td></tr>
+            <tr><td>Relationship context</td><td>Manually selected (cold / warm / direct)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Compatible sites -->
+    <section class="grid">
+      <div class="card pad col-12">
+        <div class="kicker">Compatible sites</div>
+        <h2>Works best on</h2>
+        <ul>
+          <li>LinkedIn profiles and company pages</li>
+          <li>Company websites</li>
+          <li>Conference attendee pages</li>
+          <li>News articles and bios</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div>© 2026 ALKNZ Ventures — Extension Guide</div>
+      <div><a href="admin.html">Back to Admin Guide</a></div>
+    </footer>
+  </main>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

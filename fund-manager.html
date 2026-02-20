@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>ALKZN Portal — Fund Manager Guide</title>
+  <meta name="description" content="Fund Manager dashboard feature reference for the ALKNZ Portal."/>
+  <link rel="stylesheet" href="assets/style.css"/>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <span class="brand-badge" aria-hidden="true"></span>
+        <span>ALKNZ Portal</span>
+        <span class="pill"><span class="dot"></span>fund manager</span>
+      </div>
+      <nav>
+        <a href="index.html">Overview</a>
+        <a href="admin.html">Admin</a>
+        <a href="fund-manager.html">Fund Manager</a>
+        <a href="chrome-extension.html">Chrome Extension</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <div class="kicker">Fund manager dashboard</div>
+        <h1>Fund Manager<br/>Feature Reference</h1>
+        <p class="sub">
+          Fund Manager view is scoped to the selected fund. If you’re assigned to multiple funds,
+          switch using the fund selector in the header.
+        </p>
+
+        <div class="btn-row">
+          <a class="btn primary" target="_blank" rel="noopener noreferrer" href="https://alknz-web.onrender.com/login">Open Portal Login</a>
+          <button class="btn" data-copy="sara@demo.alknz.io">Copy FM Email</button>
+          <button class="btn" data-copy="Demo@FM2024">Copy FM Password</button>
+        </div>
+
+        <div class="hr"></div>
+
+        <div class="callout">
+          <div class="tiny">
+            Fund Manager login: <code>sara@demo.alknz.io</code> / <code>Demo@FM2024</code>
+          </div>
+        </div>
+      </div>
+
+      <div class="card pad">
+        <div class="kicker">7 Tabs</div>
+        <h2>Navigation</h2>
+        <ul>
+          <li>1 — Capital Overview</li>
+          <li>2 — Task Manager</li>
+          <li>3 — Investor Profiles</li>
+          <li>4 — Fundraising Pipeline</li>
+          <li>5 — Communication Center</li>
+          <li>6 — Research Capture</li>
+          <li>7 — Personas</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Tab 1 -->
+    <section class="grid">
+      <div class="card pad col-12">
+        <div class="kicker">Tab 1 — Capital Overview</div>
+        <h2>Live fund metrics</h2>
+        <p>The first screen after Fund Manager login. Updates immediately as stages/ticket sizes change.</p>
+
+        <div class="grid" style="margin-top:12px">
+          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
+            <h3>What you see</h3>
+            <ul>
+              <li><b>4 KPI cards</b>: Target Raise, Total Committed, Total Funded, % to Close</li>
+              <li>Ticket size distribution chart (capital by size bucket)</li>
+              <li>Stage funnel (investor count per pipeline stage)</li>
+            </ul>
+          </div>
+          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
+            <h3>How to use it</h3>
+            <ul>
+              <li>Use funnel to find bottlenecks (where investors stall)</li>
+              <li>Use distribution to see if raise is reliant on whales vs broad base</li>
+              <li>Keep ticket sizes updated; everything aggregates from that number</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 2 -->
+    <section class="grid">
+      <div class="card pad col-12">
+        <div class="kicker">Tab 2 — Task Manager</div>
+        <h2>All tasks in one list</h2>
+        <p>The bell icon shows a live count of open tasks.</p>
+
+        <div class="grid" style="margin-top:12px">
+          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
+            <h3>What you see</h3>
+            <ul>
+              <li>Investor name, task description, type (⚡ Auto / Manual)</li>
+              <li>Priority (high/medium/low), due date, completion checkbox</li>
+            </ul>
+          </div>
+          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
+            <h3>Task types</h3>
+            <ul>
+              <li><b>⚡ Auto</b>: generated when investor moves stages (standard checklist)</li>
+              <li><b>Manual</b>: created via +, link to investor, set due date/priority/notes</li>
+              <li>Filter by investor, stage, priority, completion</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 3 -->
+    <section class="grid">
+      <div class="card pad col-12">
+        <div class="kicker">Tab 3 — Investor Profiles</div>
+        <h2>Fund investor database</h2>
+
+        <div class="grid" style="margin-top:12px">
+          <div class="card pad col-12" style="background:rgba(8,15,27,.45)">
+            <h3>List columns</h3>
+            <ul>
+              <li>Name, investor type, nationality, pipeline stage</li>
+              <li>Relationship strength badge, expected ticket size</li>
+              <li>Persona match % badge</li>
+            </ul>
+          </div>
+
+          <div class="card pad col-12" style="background:rgba(8,15,27,.45)">
+            <h3>Investor detail panel (4 tabs)</h3>
+            <table class="table" style="margin-top:10px">
+              <thead>
+                <tr><th>Tab</th><th>What’s inside</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Identity</b></td>
+                  <td>Full name, type, nationality, age, job title, firm, LinkedIn, wealth level</td>
+                </tr>
+                <tr>
+                  <td><b>Context</b></td>
+                  <td>Relationship strength, decision role, preferences (sectors, check size, geography), notes</td>
+                </tr>
+                <tr>
+                  <td><b>Contact</b></td>
+                  <td>Primary email + up to 4 secondary emails, phone, WhatsApp, point of contact</td>
+                </tr>
+                <tr>
+                  <td><b>Personas</b></td>
+                  <td>AI match score progress bars for each persona; updates after analysis runs</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="hr"></div>
+            <p class="tiny"><b>Edit mode:</b> Click Edit → modify fields → Save to apply immediately.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 4 -->
+    <section class="grid">
+      <div class="card pad col-12">
+        <div class="kicker">Tab 4 — Fundraising Pipeline</div>
+        <h2>13-stage Kanban board</h2>
+
+        <div class="grid" style="margin-top:12px">
+          <div class="card pad col-12" style="background:rgba(8,15,27,.45)">
+            <h3>Stages</h3>
+            <table class="table" style="margin-top:10px">
+              <thead>
+                <tr><th>#</th><th>Stage</th><th>#</th><th>Stage</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>1</td><td>Prospects</td><td>8</td><td>Follow Up Email</td></tr>
+                <tr><td>2</td><td>Investors</td><td>9</td><td>Signing Contract</td></tr>
+                <tr><td>3</td><td>Intro Email</td><td>10</td><td>Signing Subscription</td></tr>
+                <tr><td>4</td><td>Opportunity Email</td><td>11</td><td>Letter for Capital Call</td></tr>
+                <tr><td>5</td><td>Phone Call</td><td>12</td><td>Money Transfer</td></tr>
+                <tr><td>6</td><td>First Meeting</td><td>13</td><td>Transfer Date</td></tr>
+                <tr><td>7</td><td>Second Meeting</td><td>—</td><td>—</td></tr>
+              </tbody>
+            </table>
+
+            <div class="hr"></div>
+            <h3>What you can do</h3>
+            <ul>
+              <li>Drag & drop investor cards between stages (saves instantly)</li>
+              <li>Auto-tasks are created when cards move stages</li>
+              <li>Scroll horizontally to view all stages</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 5 -->
+    <section class="grid">
+      <div class="card pad col-12">
+        <div class="kicker">Tab 5 — Communication Center</div>
+        <h2>Inbox + Call Logs + Templates</h2>
+
+        <div class="grid" style="margin-top:12px">
+          <div class="card pad col-4" style="background:rgba(8,15,27,.45)">
+            <h3>Inbox</h3>
+            <ul>
+              <li>Connect Gmail via OAuth (Settings → Gmail → Connect)</li>
+              <li>Investor emails auto-tagged by matched addresses</li>
+              <li>Compose/reply inside the portal</li>
+            </ul>
+          </div>
+          <div class="card pad col-4" style="background:rgba(8,15,27,.45)">
+            <h3>Call Logs</h3>
+            <ul>
+              <li>Log calls: investor, date, outcome, notes, next steps</li>
+              <li>Optional: auto-create follow-up task linked to the investor</li>
+            </ul>
+          </div>
+          <div class="card pad col-4" style="background:rgba(8,15,27,.45)">
+            <h3>Templates</h3>
+            <ul>
+              <li>Email templates with merge vars:</li>
+              <li><code>{{investor_name}}</code>, <code>{{fund_name}}</code>, <code>{{ticket_size}}</code></li>
+              <li>Select template when composing → auto-populates</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 6 -->
+    <section class="grid">
+      <div class="card pad col-12">
+        <div class="kicker">Tab 6 — Research Capture</div>
+        <h2>Review Chrome Extension captures</h2>
+
+        <div class="grid" style="margin-top:12px">
+          <div class="card pad col-12" style="background:rgba(8,15,27,.45)">
+            <h3>Accept flow</h3>
+            <ol style="margin:10px 0 0; padding-left:18px; color:var(--muted)">
+              <li>Select a fund from dropdown on the capture card</li>
+              <li>Click <b>Accept</b></li>
+              <li>Investor is created immediately</li>
+              <li>Portal switches to Investor Profiles and opens the new profile automatically</li>
+            </ol>
+
+            <div class="hr"></div>
+            <h3>Reject</h3>
+            <p>Reject discards the capture with an optional reason. Rejected stays archived with status.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 7 -->
+    <section class="grid">
+      <div class="card pad col-12">
+        <div class="kicker">Tab 7 — Personas</div>
+        <h2>Define archetypes + score investors (0–100%)</h2>
+
+        <div class="grid" style="margin-top:12px">
+          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
+            <h3>What you can do</h3>
+            <ul>
+              <li><b>Create Persona</b>: type, nationalities, sectors, age range, ticket size range</li>
+              <li><b>Run AI Analysis</b>: scores every investor vs every persona (0–100%)</li>
+              <li><b>Analyze & Suggest</b>: AI suggests archetypes not covered by existing personas</li>
+            </ul>
+          </div>
+          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
+            <h3>Where scores appear</h3>
+            <ul>
+              <li>Investor list: badge %</li>
+              <li>Investor detail: Personas tab progress bars</li>
+              <li>Use <b>50%+</b> as “match” threshold for coverage tracking</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div>© 2026 ALKNZ Ventures — Fund Manager Guide</div>
+      <div><a href="chrome-extension.html">Next: Chrome Extension Guide →</a></div>
+    </footer>
+  </main>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
