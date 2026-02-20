@@ -1,183 +1,249 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="utf-8"/>
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>ALKNZ Portal — Overview</title>
-  <meta name="description" content="How to use the ALKNZ Fund Manager Portal: Admin + Fund Manager workflows, features, and Chrome Extension."/>
+  <meta name="description" content="Internal docs for the ALKNZ Fund Manager Portal: Admin, Fund Manager, and Chrome Extension."/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <link rel="stylesheet" href="assets/style.css"/>
+
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: { alknz: { bg:'#020408', surface:'#0f172a', border:'#1e293b', primary:'#3b82f6', accent:'#6366f1', text:'#f8fafc', muted:'#94a3b8' } },
+        fontFamily: { sans:['Inter','sans-serif'] }
+      }}
+    }
+  </script>
 </head>
-<body>
-  <header class="topbar">
-    <div class="topbar-inner">
-      <div class="brand">
-        <span class="brand-badge" aria-hidden="true"></span>
-        <span>ALKNZ Portal</span>
-        <span class="pill"><span class="dot"></span>internal docs</span>
+<body class="antialiased min-h-screen flex flex-col">
+
+<!-- ── Nav ── -->
+<nav class="fixed top-0 w-full z-50 glass-panel border-b border-alknz-border">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+    <a href="index.html" class="flex items-center gap-3">
+      <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center shadow-lg shadow-blue-500/20">
+        <span class="text-white font-bold text-xl">A</span>
       </div>
-      <nav>
-        <a href="index.html" class="active">Overview</a>
-        <a href="admin.html">Admin</a>
-        <a href="fund-manager.html">Fund Manager</a>
-        <a href="extension.html">Chrome Extension</a>
-        <a href="demo.html">Demo</a>
-      </nav>
+      <div class="flex flex-col">
+        <span class="text-xl font-bold tracking-widest text-white">ALKNZ</span>
+        <span class="text-[10px] text-alknz-muted tracking-[0.2em] uppercase">Internal Docs</span>
+      </div>
+    </a>
+    <div class="hidden md:flex items-center gap-8 text-xs font-bold uppercase tracking-widest text-alknz-muted">
+      <a href="index.html"        class="nav-item hover:text-white transition-colors py-2">Overview</a>
+      <a href="admin.html"        class="nav-item hover:text-white transition-colors py-2">Admin</a>
+      <a href="fund-manager.html" class="nav-item hover:text-white transition-colors py-2">Fund Manager</a>
+      <a href="extension.html"    class="nav-item hover:text-white transition-colors py-2">Extension</a>
+      <a href="demo.html"         class="nav-item hover:text-white transition-colors py-2">Demo</a>
     </div>
-  </header>
+    <a href="https://alknz-web.onrender.com/login" target="_blank" rel="noopener noreferrer"
+       class="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-lg transition-all shadow-lg shadow-blue-600/20 text-xs font-bold uppercase tracking-wide flex items-center gap-2">
+      Open Portal <i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i>
+    </a>
+  </div>
+</nav>
 
-  <main class="wrap">
-    <section class="hero">
-      <div>
-        <div class="kicker">Internal docs</div>
-        <h1>How to use the<br/>Fund Manager Portal</h1>
-        <p class="sub">
-          This guide covers every module, every role, and how the Chrome Extension feeds investor
-          research into the portal. Pick a section below or open the portal to explore live.
-        </p>
+<main class="relative z-10 flex-grow pt-20">
 
-        <div class="btn-row">
-          <a class="btn primary" target="_blank" rel="noopener noreferrer" href="https://alknz-web.onrender.com/login">Open Portal Login</a>
-          <a class="btn" target="_blank" rel="noopener noreferrer" href="https://github.com/msallam227/alknz-fm-portal">View GitHub Repo</a>
-          <a class="btn ghost" target="_blank" rel="noopener noreferrer" href="https://alknz-chrome-extension.vercel.app/index.html">Chrome Extension</a>
-        </div>
+  <!-- ── Hero ── -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
 
-        <div class="hr"></div>
-
-        <div class="callout">
-          <div class="tiny">
-            The portal is role-based: <b>Admin</b> has global visibility across all funds, users, and investors.
-            <b>Fund Managers</b> only see data for funds assigned to them — fully isolated.
-          </div>
-        </div>
-
-        <!-- Stats strip -->
-        <div class="stats-strip">
-          <div class="stat-block">
-            <div class="stat-num">9</div>
-            <div class="stat-label">Admin Modules</div>
-          </div>
-          <div class="stat-block">
-            <div class="stat-num">7</div>
-            <div class="stat-label">FM Dashboard Tabs</div>
-          </div>
-          <div class="stat-block">
-            <div class="stat-num">13</div>
-            <div class="stat-label">Pipeline Stages</div>
-          </div>
-          <div class="stat-block">
-            <div class="stat-num">MV3</div>
-            <div class="stat-label">Chrome Extension</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card pad">
-        <div class="kicker">Quick start</div>
-        <h2>Start here (60 seconds)</h2>
-        <ul>
-          <li>Open <code>/login</code> and sign in with a demo role.</li>
-          <li>Admins: confirm Users, Funds, and Assignments are configured.</li>
-          <li>Fund Managers: select a fund in the header, then operate within the 7 tabs.</li>
-          <li>Use the Chrome Extension to capture investors and review them in <b>Research Capture</b>.</li>
-        </ul>
-
-        <div class="hr"></div>
-
-        <h3>Demo accounts</h3>
-        <div class="grid" style="margin-top:12px">
-          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
-            <div class="badge success">Admin</div>
-            <p style="margin-top:10px">
-              Email: <code>admin@demo.alknz.io</code><br/>
-              Password: <code>Demo@Admin1</code>
-            </p>
-            <div class="btn-row">
-              <button class="btn small" data-copy="admin@demo.alknz.io">Copy Email</button>
-              <button class="btn small" data-copy="Demo@Admin1">Copy Password</button>
-            </div>
+        <!-- Left -->
+        <div class="animate-fade-in">
+          <span class="text-blue-500 font-bold text-xs uppercase tracking-[0.3em] block mb-4">Internal Docs</span>
+          <h1 class="text-5xl font-bold leading-tight mb-5">
+            How to use the<br/><span class="gradient-text">Fund Manager Portal</span>
+          </h1>
+          <p class="text-alknz-muted text-lg leading-relaxed mb-8 max-w-lg">
+            Complete guide covering every module, every role, and how the Chrome Extension feeds investor research into the portal.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a href="https://alknz-web.onrender.com/login" target="_blank" rel="noopener noreferrer"
+               class="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-bold text-sm uppercase tracking-wide flex items-center gap-2 transition-all shadow-xl shadow-blue-600/25">
+              <i class="fa-solid fa-right-to-bracket"></i> Open Portal Login
+            </a>
+            <a href="https://github.com/msallam227/alknz-fm-portal" target="_blank" rel="noopener noreferrer"
+               class="px-6 py-3 bg-alknz-surface hover:bg-slate-800 text-white rounded-xl font-bold text-sm uppercase tracking-wide flex items-center gap-2 border border-alknz-border transition-all">
+              <i class="fa-brands fa-github"></i> GitHub Repo
+            </a>
+            <a href="https://alknz-chrome-extension.vercel.app/index.html" target="_blank" rel="noopener noreferrer"
+               class="px-6 py-3 bg-alknz-surface hover:bg-slate-800 text-white rounded-xl font-bold text-sm uppercase tracking-wide flex items-center gap-2 border border-alknz-border transition-all">
+              <i class="fa-brands fa-chrome"></i> Chrome Extension
+            </a>
           </div>
 
-          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
-            <div class="badge success">Fund Manager</div>
-            <p style="margin-top:10px">
-              Email: <code>sara@demo.alknz.io</code><br/>
-              Password: <code>Demo@FM2024</code>
-            </p>
-            <div class="btn-row">
-              <button class="btn small" data-copy="sara@demo.alknz.io">Copy Email</button>
-              <button class="btn small" data-copy="Demo@FM2024">Copy Password</button>
+          <!-- Role callout -->
+          <div class="mt-8 p-4 rounded-xl bg-blue-900/10 border border-blue-500/20">
+            <div class="text-xs text-alknz-muted leading-relaxed">
+              <span class="text-blue-400 font-bold">Role-based access —</span>
+              Admin has full visibility across all funds, users, and investors.
+              Fund Managers see only the funds assigned to them, fully isolated.
             </div>
           </div>
         </div>
 
-        <div class="hr"></div>
-        <h3>Pre-loaded demo data</h3>
-        <ul style="margin-top:6px">
-          <li><b>12 GCC investors</b> across all 13 pipeline stages</li>
-          <li><b>26 tasks</b> — auto-generated + manual</li>
-          <li><b>2 investor personas</b> with AI scoring</li>
-          <li><b>4 call logs</b> and <b>4 email templates</b></li>
-          <li>Fund: Watheeq Proptech SPV II (SAR 50M target)</li>
-        </ul>
-      </div>
-    </section>
+        <!-- Right — Quick start card -->
+        <div class="glass-panel rounded-2xl p-7 animate-fade-in" style="animation-delay:.1s">
+          <span class="text-blue-500 font-bold text-xs uppercase tracking-[0.3em] block mb-4">Quick Start</span>
+          <h2 class="text-xl font-bold text-white mb-4">Start here (60 seconds)</h2>
+          <ul class="space-y-2 text-sm text-alknz-muted mb-6">
+            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-blue-400 mt-0.5 text-xs"></i> Open <code class="bg-alknz-surface border border-alknz-border px-1.5 py-0.5 rounded text-xs text-slate-300 mx-1">/login</code> and sign in with a demo role.</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-blue-400 mt-0.5 text-xs"></i> Admins: confirm Users, Funds, and Assignments are configured.</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-blue-400 mt-0.5 text-xs"></i> Fund Managers: select a fund in the header, then explore the 7 tabs.</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-blue-400 mt-0.5 text-xs"></i> Use the Extension to capture investors and review them in <strong class="text-white">Research Capture</strong>.</li>
+          </ul>
 
-    <!-- Module overview cards -->
-    <section class="grid">
-      <div class="card pad col-4" style="background:rgba(8,15,27,.45)">
-        <h3>Admin Dashboard</h3>
-        <p style="margin-bottom:10px">Global governance and visibility across all funds, users, and investors.</p>
-        <ul style="margin-bottom:14px">
-          <li>Real-time KPI cards + fund health table</li>
-          <li>Create users, funds, and fund assignments</li>
-          <li>Cross-fund investor search and filtering</li>
-          <li>AI-powered duplicate detection and merging</li>
-          <li>Review Chrome Extension captures (Investor Requests)</li>
-          <li>Platform-wide persona analytics and feedback responses</li>
-        </ul>
-        <div class="btn-row">
-          <a class="btn small" href="admin.html">Open Admin Guide</a>
+          <div class="border-t border-alknz-border pt-5">
+            <h3 class="text-sm font-bold text-white mb-3">Demo accounts</h3>
+            <div class="grid grid-cols-2 gap-3">
+              <div class="bg-alknz-bg rounded-xl p-3 border border-alknz-border">
+                <div class="chip bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 mb-2">Admin</div>
+                <div class="text-xs text-alknz-muted mb-0.5">admin@demo.alknz.io</div>
+                <code class="text-xs text-slate-300">Demo@Admin1</code>
+                <div class="flex gap-1.5 mt-2">
+                  <button data-copy="admin@demo.alknz.io" class="text-[10px] font-bold uppercase tracking-wide px-2 py-1 rounded bg-alknz-surface border border-alknz-border text-alknz-muted hover:text-white transition-colors">Email</button>
+                  <button data-copy="Demo@Admin1" class="text-[10px] font-bold uppercase tracking-wide px-2 py-1 rounded bg-alknz-surface border border-alknz-border text-alknz-muted hover:text-white transition-colors">PW</button>
+                </div>
+              </div>
+              <div class="bg-alknz-bg rounded-xl p-3 border border-alknz-border">
+                <div class="chip bg-blue-500/10 border border-blue-500/20 text-blue-400 mb-2">Fund Mgr</div>
+                <div class="text-xs text-alknz-muted mb-0.5">sara@demo.alknz.io</div>
+                <code class="text-xs text-slate-300">Demo@FM2024</code>
+                <div class="flex gap-1.5 mt-2">
+                  <button data-copy="sara@demo.alknz.io" class="text-[10px] font-bold uppercase tracking-wide px-2 py-1 rounded bg-alknz-surface border border-alknz-border text-alknz-muted hover:text-white transition-colors">Email</button>
+                  <button data-copy="Demo@FM2024" class="text-[10px] font-bold uppercase tracking-wide px-2 py-1 rounded bg-alknz-surface border border-alknz-border text-alknz-muted hover:text-white transition-colors">PW</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="border-t border-alknz-border pt-5 mt-5">
+            <h3 class="text-sm font-bold text-white mb-2">Pre-loaded demo data</h3>
+            <ul class="text-xs text-alknz-muted space-y-1">
+              <li><span class="text-white font-semibold">12 GCC investors</span> across all 13 pipeline stages</li>
+              <li><span class="text-white font-semibold">26 tasks</span> — auto-generated + manual</li>
+              <li><span class="text-white font-semibold">2 investor personas</span> with AI scoring</li>
+              <li><span class="text-white font-semibold">4 call logs</span> and <span class="text-white font-semibold">4 email templates</span></li>
+              <li>Fund: Watheeq Proptech SPV II (SAR 50M target)</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Stats strip -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-14">
+        <div class="glass-panel rounded-xl p-5 text-center">
+          <div class="text-3xl font-black text-white">9</div>
+          <div class="text-xs font-bold uppercase tracking-widest text-alknz-muted mt-1">Admin Modules</div>
+        </div>
+        <div class="glass-panel rounded-xl p-5 text-center">
+          <div class="text-3xl font-black text-white">7</div>
+          <div class="text-xs font-bold uppercase tracking-widest text-alknz-muted mt-1">FM Dashboard Tabs</div>
+        </div>
+        <div class="glass-panel rounded-xl p-5 text-center">
+          <div class="text-3xl font-black text-white">13</div>
+          <div class="text-xs font-bold uppercase tracking-widest text-alknz-muted mt-1">Pipeline Stages</div>
+        </div>
+        <div class="glass-panel rounded-xl p-5 text-center">
+          <div class="text-3xl font-black text-white">MV3</div>
+          <div class="text-xs font-bold uppercase tracking-widest text-alknz-muted mt-1">Chrome Extension</div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="card pad col-4" style="background:rgba(8,15,27,.45)">
-        <h3>Fund Manager Dashboard</h3>
-        <p style="margin-bottom:10px">Fund-scoped execution across 7 tabs — all data isolated per fund.</p>
-        <ul style="margin-bottom:14px">
-          <li>Capital Overview: live raise metrics and stage funnel</li>
-          <li>Task Manager: auto + manual tasks with priorities</li>
-          <li>Investor Profiles: 4-tab detail panel (Identity, Context, Contact, Personas)</li>
-          <li>Fundraising Pipeline: 13-stage Kanban with drag-and-drop</li>
-          <li>Communication Center: Gmail inbox, call logs, email templates</li>
-          <li>Research Capture + AI Persona scoring (0–100%)</li>
-        </ul>
-        <div class="btn-row">
-          <a class="btn small" href="fund-manager.html">Open FM Guide</a>
-        </div>
+  <!-- ── Module Cards ── -->
+  <section class="py-16 border-t border-alknz-border/60">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <span class="text-blue-500 font-bold text-xs uppercase tracking-[0.3em] block mb-3">Documentation</span>
+        <h2 class="text-3xl font-bold text-white">Three modules, one platform</h2>
+        <p class="text-alknz-muted mt-3 max-w-2xl mx-auto">Each guide covers every feature, every workflow, and every action available in that module.</p>
       </div>
 
-      <div class="card pad col-4" style="background:rgba(8,15,27,.45)">
-        <h3>Chrome Extension</h3>
-        <p style="margin-bottom:10px">Capture investor profiles from any webpage and send them to the portal.</p>
-        <ul style="margin-bottom:14px">
-          <li>Works on LinkedIn profiles, company pages, and bios</li>
-          <li>Auto-extracts name, job title, firm, and LinkedIn URL</li>
-          <li>Add notes and relationship context before uploading</li>
-          <li>Captures appear instantly in Research Capture (FM) and Investor Requests (Admin)</li>
-          <li>Accept flow creates the investor and opens their profile automatically</li>
-        </ul>
-        <div class="btn-row">
-          <a class="btn small" href="extension.html">Open Extension Guide</a>
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Admin -->
+        <div class="glass-panel p-7 rounded-2xl border border-alknz-border flex flex-col">
+          <div class="flex items-center gap-3 mb-4">
+            <i class="fa-solid fa-shield-halved text-blue-500 text-2xl"></i>
+            <h3 class="text-lg font-bold text-white">Admin Dashboard</h3>
+          </div>
+          <p class="text-alknz-muted text-sm leading-relaxed mb-4">Global governance and visibility across all funds, users, and investors on the platform.</p>
+          <ul class="text-sm text-alknz-muted space-y-1.5 mb-6 flex-grow">
+            <li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-blue-400 text-[10px] mt-1"></i> Real-time KPI cards + fund health table</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-blue-400 text-[10px] mt-1"></i> Create and manage users, funds, assignments</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-blue-400 text-[10px] mt-1"></i> Cross-fund investor search and filtering</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-blue-400 text-[10px] mt-1"></i> AI-powered duplicate detection and merging</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-blue-400 text-[10px] mt-1"></i> Investor Requests from Chrome Extension</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-blue-400 text-[10px] mt-1"></i> Platform-wide persona analytics + feedback</li>
+          </ul>
+          <a href="admin.html" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blue-400 hover:text-blue-300 transition-colors">
+            Open Admin Guide <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Fund Manager -->
+        <div class="glass-panel p-7 rounded-2xl border border-alknz-border flex flex-col">
+          <div class="flex items-center gap-3 mb-4">
+            <i class="fa-solid fa-chart-line text-indigo-400 text-2xl"></i>
+            <h3 class="text-lg font-bold text-white">Fund Manager Dashboard</h3>
+          </div>
+          <p class="text-alknz-muted text-sm leading-relaxed mb-4">Fund-scoped execution across 7 tabs — all data isolated per assigned fund.</p>
+          <ul class="text-sm text-alknz-muted space-y-1.5 mb-6 flex-grow">
+            <li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-indigo-400 text-[10px] mt-1"></i> Capital Overview: live raise metrics + stage funnel</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-indigo-400 text-[10px] mt-1"></i> Task Manager: auto + manual tasks with priorities</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-indigo-400 text-[10px] mt-1"></i> Investor Profiles: 4-tab detail panel</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-indigo-400 text-[10px] mt-1"></i> 13-stage Kanban pipeline with drag-and-drop</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-indigo-400 text-[10px] mt-1"></i> Gmail inbox, call logs, email templates</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-indigo-400 text-[10px] mt-1"></i> Research Capture + AI persona scoring (0–100%)</li>
+          </ul>
+          <a href="fund-manager.html" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-indigo-400 hover:text-indigo-300 transition-colors">
+            Open FM Guide <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Chrome Extension -->
+        <div class="glass-panel p-7 rounded-2xl border border-alknz-border flex flex-col">
+          <div class="flex items-center gap-3 mb-4">
+            <i class="fa-brands fa-chrome text-sky-400 text-2xl"></i>
+            <h3 class="text-lg font-bold text-white">Chrome Extension</h3>
+          </div>
+          <p class="text-alknz-muted text-sm leading-relaxed mb-4">Capture investor profiles from any webpage and send them straight into the portal.</p>
+          <ul class="text-sm text-alknz-muted space-y-1.5 mb-6 flex-grow">
+            <li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-sky-400 text-[10px] mt-1"></i> Works on LinkedIn, company pages, and any bio</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-sky-400 text-[10px] mt-1"></i> Auto-extracts name, job title, firm, LinkedIn URL</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-sky-400 text-[10px] mt-1"></i> Add notes and relationship context before uploading</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-sky-400 text-[10px] mt-1"></i> Captures appear in Research Capture + Investor Requests</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-sky-400 text-[10px] mt-1"></i> Accept creates investor + opens profile automatically</li>
+          </ul>
+          <a href="extension.html" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-sky-400 hover:text-sky-300 transition-colors">
+            Open Extension Guide <i class="fa-solid fa-arrow-right"></i>
+          </a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Role comparison -->
-    <section class="grid">
-      <div class="card pad col-12">
-        <div class="kicker">Role comparison</div>
-        <h2>Admin vs Fund Manager</h2>
-        <table class="table" style="margin-top:12px">
+  <!-- ── Role Comparison ── -->
+  <section class="py-16 border-t border-alknz-border/60">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-10">
+        <span class="text-blue-500 font-bold text-xs uppercase tracking-[0.3em] block mb-3">Permissions</span>
+        <h2 class="text-3xl font-bold text-white">Admin vs Fund Manager</h2>
+      </div>
+      <div class="glass-panel rounded-2xl overflow-hidden">
+        <table class="tbl">
           <thead>
             <tr>
               <th>Capability</th>
@@ -186,26 +252,40 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td>See all funds</td><td><span class="badge success">Yes</span></td><td><span class="badge">Assigned only</span></td></tr>
-            <tr><td>Create / edit funds</td><td><span class="badge success">Yes</span></td><td><span class="badge">No</span></td></tr>
-            <tr><td>Create users</td><td><span class="badge success">Yes</span></td><td><span class="badge">No</span></td></tr>
-            <tr><td>Assign managers to funds</td><td><span class="badge success">Yes</span></td><td><span class="badge">No</span></td></tr>
-            <tr><td>Cross-fund investor search</td><td><span class="badge success">Yes</span></td><td><span class="badge">No</span></td></tr>
-            <tr><td>Duplicate detection</td><td><span class="badge success">Yes</span></td><td><span class="badge">No</span></td></tr>
-            <tr><td>Investor Requests (extension captures)</td><td><span class="badge success">Yes</span></td><td>Via Research Capture</td></tr>
-            <tr><td>Pipeline, tasks, comms</td><td><span class="badge">No</span></td><td><span class="badge success">Yes</span></td></tr>
-            <tr><td>AI Persona scoring</td><td>Analytics only</td><td><span class="badge success">Run + view scores</span></td></tr>
+            <tr><td>See all funds</td><td><span class="chip bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">Yes — all</span></td><td><span class="chip bg-slate-500/10 border border-slate-500/20 text-slate-400">Assigned only</span></td></tr>
+            <tr><td>Create / edit funds</td><td><span class="chip bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">Yes</span></td><td><span class="chip bg-slate-500/10 border border-slate-500/20 text-slate-400">No</span></td></tr>
+            <tr><td>Create users</td><td><span class="chip bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">Yes</span></td><td><span class="chip bg-slate-500/10 border border-slate-500/20 text-slate-400">No</span></td></tr>
+            <tr><td>Assign managers to funds</td><td><span class="chip bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">Yes</span></td><td><span class="chip bg-slate-500/10 border border-slate-500/20 text-slate-400">No</span></td></tr>
+            <tr><td>Cross-fund investor search</td><td><span class="chip bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">Yes</span></td><td><span class="chip bg-slate-500/10 border border-slate-500/20 text-slate-400">No</span></td></tr>
+            <tr><td>Duplicate detection + merge</td><td><span class="chip bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">Yes</span></td><td><span class="chip bg-slate-500/10 border border-slate-500/20 text-slate-400">No</span></td></tr>
+            <tr><td>Chrome Extension captures</td><td>Investor Requests</td><td>Research Capture</td></tr>
+            <tr><td>Pipeline, tasks, comms</td><td><span class="chip bg-slate-500/10 border border-slate-500/20 text-slate-400">No</span></td><td><span class="chip bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">Yes</span></td></tr>
+            <tr><td>AI Persona scoring</td><td>Analytics view only</td><td><span class="chip bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">Run + view scores</span></td></tr>
           </tbody>
         </table>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <footer class="footer">
-      <div>© 2026 ALKNZ Ventures — Internal Guide</div>
-      <div>Login: <a target="_blank" rel="noopener noreferrer" href="https://alknz-web.onrender.com/login">alknz-web.onrender.com/login</a></div>
-    </footer>
-  </main>
+</main>
 
-  <script src="assets/app.js"></script>
+<!-- ── Footer ── -->
+<footer class="bg-black border-t border-alknz-border py-10 relative z-10">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+    <div class="flex items-center gap-2">
+      <div class="w-6 h-6 bg-blue-600 rounded flex items-center justify-center text-white font-bold text-[10px]">A</div>
+      <span class="text-sm font-bold tracking-widest text-white uppercase">ALKNZ</span>
+    </div>
+    <div class="flex gap-6 text-xs text-slate-600 font-bold uppercase tracking-widest">
+      <a href="admin.html" class="hover:text-white transition-colors">Admin</a>
+      <a href="fund-manager.html" class="hover:text-white transition-colors">Fund Manager</a>
+      <a href="extension.html" class="hover:text-white transition-colors">Extension</a>
+      <a href="demo.html" class="hover:text-white transition-colors">Demo</a>
+    </div>
+    <div class="text-[10px] font-bold text-slate-600 uppercase tracking-widest">© 2026 ALKNZ Ventures | Internal</div>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
 </body>
 </html>

@@ -1,294 +1,336 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>ALKZN Portal — Admin Guide</title>
+  <title>ALKNZ Portal — Admin Guide</title>
   <meta name="description" content="Admin dashboard feature reference for the ALKNZ Fund Manager Portal."/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <link rel="stylesheet" href="assets/style.css"/>
+
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: { alknz: { bg:'#020408', surface:'#0f172a', border:'#1e293b', primary:'#3b82f6', accent:'#6366f1', text:'#f8fafc', muted:'#94a3b8' } },
+        fontFamily: { sans:['Inter','sans-serif'] }
+      }}
+    }
+  </script>
 </head>
-<body>
-  <header class="topbar">
-    <div class="topbar-inner">
-      <div class="brand">
-        <span class="brand-badge" aria-hidden="true"></span>
-        <span>ALKNZ Portal</span>
-        <span class="pill"><span class="dot"></span>admin</span>
+<body class="antialiased min-h-screen flex flex-col">
+
+<!-- ── Nav ── -->
+<nav class="fixed top-0 w-full z-50 glass-panel border-b border-alknz-border">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+    <a href="index.html" class="flex items-center gap-3">
+      <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center shadow-lg shadow-blue-500/20">
+        <span class="text-white font-bold text-xl">A</span>
       </div>
-      <nav>
-        <a href="index.html">Overview</a>
-        <a href="admin.html">Admin</a>
-        <a href="fund-manager.html">Fund Manager</a>
-        <a href="extension.html">Chrome Extension</a>
-        <a href="demo.html">Demo</a>
-      </nav>
+      <div class="flex flex-col">
+        <span class="text-xl font-bold tracking-widest text-white">ALKNZ</span>
+        <span class="text-[10px] text-alknz-muted tracking-[0.2em] uppercase">Admin Guide</span>
+      </div>
+    </a>
+    <div class="hidden md:flex items-center gap-8 text-xs font-bold uppercase tracking-widest text-alknz-muted">
+      <a href="index.html"        class="nav-item hover:text-white transition-colors py-2">Overview</a>
+      <a href="admin.html"        class="nav-item hover:text-white transition-colors py-2">Admin</a>
+      <a href="fund-manager.html" class="nav-item hover:text-white transition-colors py-2">Fund Manager</a>
+      <a href="extension.html"    class="nav-item hover:text-white transition-colors py-2">Extension</a>
+      <a href="demo.html"         class="nav-item hover:text-white transition-colors py-2">Demo</a>
     </div>
-  </header>
+    <a href="https://alknz-web.onrender.com/login" target="_blank" rel="noopener noreferrer"
+       class="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-lg transition-all shadow-lg shadow-blue-600/20 text-xs font-bold uppercase tracking-wide flex items-center gap-2">
+      Open Portal <i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i>
+    </a>
+  </div>
+</nav>
 
-  <main class="wrap">
-    <section class="hero">
-      <div>
-        <div class="kicker">Admin dashboard</div>
-        <h1>Admin Feature<br/>Reference</h1>
-        <p class="sub">
-          Admin has full visibility across all funds, users, and investors. No data is hidden in Admin view.
-        </p>
+<main class="relative z-10 flex-grow pt-20">
 
-        <div class="btn-row">
-          <a class="btn primary" target="_blank" rel="noopener noreferrer" href="https://alknz-web.onrender.com/login">Open Portal Login</a>
-          <button class="btn" data-copy="admin@demo.alknz.io">Copy Admin Email</button>
-          <button class="btn" data-copy="Demo@Admin1">Copy Admin Password</button>
-        </div>
-
-        <div class="hr"></div>
-
-        <div class="callout">
-          <div class="tiny">
-            Admin login: <code>admin@demo.alknz.io</code> / <code>Demo@Admin1</code>
+  <!-- ── Hero ── -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
+        <div class="animate-fade-in">
+          <span class="text-blue-500 font-bold text-xs uppercase tracking-[0.3em] block mb-4">Admin Dashboard</span>
+          <h1 class="text-5xl font-bold leading-tight mb-5">
+            Admin Feature<br/><span class="gradient-text">Reference</span>
+          </h1>
+          <p class="text-alknz-muted text-lg leading-relaxed mb-8 max-w-lg">
+            Admin has full visibility across all funds, users, and investors. No data is hidden in Admin view.
+          </p>
+          <div class="flex flex-wrap gap-3 mb-6">
+            <a href="https://alknz-web.onrender.com/login" target="_blank" rel="noopener noreferrer"
+               class="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-bold text-sm uppercase tracking-wide flex items-center gap-2 transition-all shadow-xl shadow-blue-600/25">
+              <i class="fa-solid fa-right-to-bracket"></i> Open Portal Login
+            </a>
+            <button data-copy="admin@demo.alknz.io"
+               class="px-6 py-3 bg-alknz-surface hover:bg-slate-800 text-white rounded-xl font-bold text-sm uppercase tracking-wide flex items-center gap-2 border border-alknz-border transition-all">
+              <i class="fa-solid fa-copy"></i> Copy Email
+            </button>
+            <button data-copy="Demo@Admin1"
+               class="px-6 py-3 bg-alknz-surface hover:bg-slate-800 text-white rounded-xl font-bold text-sm uppercase tracking-wide flex items-center gap-2 border border-alknz-border transition-all">
+              <i class="fa-solid fa-key"></i> Copy Password
+            </button>
+          </div>
+          <div class="p-4 rounded-xl bg-blue-900/10 border border-blue-500/20 text-xs text-alknz-muted">
+            Login: <code class="bg-alknz-surface border border-alknz-border px-1.5 py-0.5 rounded text-slate-300">admin@demo.alknz.io</code>
+            &nbsp;/&nbsp;
+            <code class="bg-alknz-surface border border-alknz-border px-1.5 py-0.5 rounded text-slate-300">Demo@Admin1</code>
           </div>
         </div>
+        <div class="glass-panel rounded-2xl p-7 animate-fade-in" style="animation-delay:.1s">
+          <span class="text-blue-500 font-bold text-xs uppercase tracking-[0.3em] block mb-4">9 Modules</span>
+          <h2 class="text-xl font-bold text-white mb-4">Admin Navigation</h2>
+          <ul class="space-y-2">
+            <li class="flex items-center gap-3 text-sm text-alknz-muted"><span class="w-6 h-6 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 text-[10px] font-bold flex-shrink-0">1</span> Dashboard</li>
+            <li class="flex items-center gap-3 text-sm text-alknz-muted"><span class="w-6 h-6 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 text-[10px] font-bold flex-shrink-0">2</span> Users</li>
+            <li class="flex items-center gap-3 text-sm text-alknz-muted"><span class="w-6 h-6 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 text-[10px] font-bold flex-shrink-0">3</span> Funds</li>
+            <li class="flex items-center gap-3 text-sm text-alknz-muted"><span class="w-6 h-6 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 text-[10px] font-bold flex-shrink-0">4</span> Assignments</li>
+            <li class="flex items-center gap-3 text-sm text-alknz-muted"><span class="w-6 h-6 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 text-[10px] font-bold flex-shrink-0">5</span> All Investors</li>
+            <li class="flex items-center gap-3 text-sm text-alknz-muted"><span class="w-6 h-6 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 text-[10px] font-bold flex-shrink-0">6</span> Duplicate Detection</li>
+            <li class="flex items-center gap-3 text-sm text-alknz-muted"><span class="w-6 h-6 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 text-[10px] font-bold flex-shrink-0">7</span> Investor Requests</li>
+            <li class="flex items-center gap-3 text-sm text-alknz-muted"><span class="w-6 h-6 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 text-[10px] font-bold flex-shrink-0">8</span> Personas Analytics</li>
+            <li class="flex items-center gap-3 text-sm text-alknz-muted"><span class="w-6 h-6 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 text-[10px] font-bold flex-shrink-0">9</span> Feedback Responses</li>
+          </ul>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <div class="card pad">
-        <div class="kicker">Modules</div>
-        <h2>Admin modules</h2>
-        <ul>
-          <li>Dashboard</li>
-          <li>Users</li>
-          <li>Funds</li>
-          <li>Assignments</li>
-          <li>All Investors</li>
-          <li>Duplicate Detection</li>
-          <li>Investor Requests</li>
-          <li>Personas Analytics</li>
-          <li>Feedback Responses</li>
-        </ul>
-      </div>
-    </section>
+  <!-- ── Modules ── -->
+  <div class="max-w-7xl mx-auto px-6 space-y-6 pb-20">
 
     <!-- 1 Dashboard -->
-    <section class="grid" id="dashboard">
-      <div class="card pad col-12">
-        <div class="kicker">1. Dashboard</div>
-        <h2>Platform-wide health check</h2>
-        <p>The landing screen after admin login. A real-time platform-wide overview.</p>
-
-        <div class="grid" style="margin-top:12px">
-          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
-            <h3>What you see</h3>
-            <ul>
-              <li><b>4 KPI cards</b>: Total Investors, Active Funds, Team Members, Aggregate Committed Capital</li>
-              <li><b>Fund health table</b>: fund name, assigned manager, investor count, % to close</li>
-              <li>Real-time updates as investors move through the pipeline</li>
-            </ul>
-          </div>
-          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
-            <h3>Why it matters</h3>
-            <ul>
-              <li>Instant visibility into fundraising progress across the entire platform</li>
-              <li>Quickly spot stalled funds or pipeline bottlenecks</li>
-              <li>Validate whether team activity is translating into committed capital</li>
-            </ul>
-          </div>
+    <div id="dashboard" class="glass-panel rounded-2xl p-7 border border-alknz-border">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="chip bg-blue-500/10 border border-blue-500/20 text-blue-400">1</div>
+        <h2 class="text-xl font-bold text-white">Dashboard — Platform-wide health check</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="text-sm font-bold text-white mb-2">What you see</h3>
+          <ul class="text-sm text-alknz-muted space-y-1.5">
+            <li><strong class="text-white">4 KPI cards</strong> — Total Investors, Active Funds, Team Members, Aggregate Committed Capital</li>
+            <li><strong class="text-white">Fund health table</strong> — fund name, manager, investor count, % to close</li>
+            <li>Numbers update in real-time as investors move through the pipeline</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-sm font-bold text-white mb-2">Why it matters</h3>
+          <ul class="text-sm text-alknz-muted space-y-1.5">
+            <li>Instant visibility into fundraising progress across the entire platform</li>
+            <li>Quickly spot stalled funds or pipeline bottlenecks</li>
+            <li>Validate whether team activity is translating into committed capital</li>
+          </ul>
         </div>
       </div>
-    </section>
+    </div>
 
     <!-- 2 Users -->
-    <section class="grid" id="users">
-      <div class="card pad col-12">
-        <div class="kicker">2. Users</div>
-        <h2>Manage fund manager accounts</h2>
-
-        <div class="grid" style="margin-top:12px">
-          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
-            <h3>What you see</h3>
-            <ul>
-              <li>Table: name, email, role, status (Active/Inactive), last login timestamp</li>
-            </ul>
-          </div>
-          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
-            <h3>What you can do</h3>
-            <ul>
-              <li><b>Create User</b>: name + email → temp password shown once → user sets password on first login</li>
-              <li><b>Deactivate</b>: toggle Active off to block login without deleting data</li>
-              <li><b>Reset password</b>: generate a new temp password any time</li>
-            </ul>
-          </div>
+    <div id="users" class="glass-panel rounded-2xl p-7 border border-alknz-border">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="chip bg-blue-500/10 border border-blue-500/20 text-blue-400">2</div>
+        <h2 class="text-xl font-bold text-white">Users — Manage fund manager accounts</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="text-sm font-bold text-white mb-2">What you see</h3>
+          <ul class="text-sm text-alknz-muted space-y-1.5">
+            <li>Table: name, email, role, status (Active / Inactive), last login timestamp</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-sm font-bold text-white mb-2">What you can do</h3>
+          <ul class="text-sm text-alknz-muted space-y-1.5">
+            <li><strong class="text-white">Create User</strong> — name + email → temp password shown once → user sets password on first login</li>
+            <li><strong class="text-white">Deactivate</strong> — toggle Active off to block login without deleting data</li>
+            <li><strong class="text-white">Reset password</strong> — generate a new temp password at any time</li>
+          </ul>
         </div>
       </div>
-    </section>
+    </div>
 
     <!-- 3 Funds -->
-    <section class="grid" id="funds">
-      <div class="card pad col-12">
-        <div class="kicker">3. Funds</div>
-        <h2>Create and configure SPVs and funds</h2>
-        <p>Each fund is a fully isolated environment.</p>
-
-        <div class="grid" style="margin-top:12px">
-          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
-            <h3>What you see</h3>
-            <ul>
-              <li>Card grid: name, type, currency, target raise, assigned managers</li>
-            </ul>
-          </div>
-          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
-            <h3>What you can do</h3>
-            <ul>
-              <li><b>Create Fund</b>: name, type (SPV/Fund), currency, target raise, close date, thesis, sectors, regions</li>
-              <li><b>Edit Fund</b>: update any field; changes apply immediately</li>
-              <li><b>Auto pipeline</b>: creating a fund provisions all 13 pipeline stages automatically</li>
-            </ul>
-          </div>
+    <div id="funds" class="glass-panel rounded-2xl p-7 border border-alknz-border">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="chip bg-blue-500/10 border border-blue-500/20 text-blue-400">3</div>
+        <h2 class="text-xl font-bold text-white">Funds — Create and configure SPVs and funds</h2>
+      </div>
+      <p class="text-alknz-muted text-sm mb-5">Each fund is a fully isolated environment.</p>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="text-sm font-bold text-white mb-2">What you see</h3>
+          <ul class="text-sm text-alknz-muted space-y-1.5">
+            <li>Card grid: name, type, currency, target raise, assigned managers</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-sm font-bold text-white mb-2">What you can do</h3>
+          <ul class="text-sm text-alknz-muted space-y-1.5">
+            <li><strong class="text-white">Create Fund</strong> — name, type (SPV / Fund), currency, target raise, close date, thesis, sectors, regions</li>
+            <li><strong class="text-white">Edit Fund</strong> — update any field; changes apply immediately</li>
+            <li><strong class="text-white">Auto pipeline</strong> — creating a fund provisions all 13 pipeline stages automatically</li>
+          </ul>
         </div>
       </div>
-    </section>
+    </div>
 
     <!-- 4 Assignments -->
-    <section class="grid" id="assignments">
-      <div class="card pad col-12">
-        <div class="kicker">4. Assignments</div>
-        <h2>Map fund managers to funds</h2>
-        <p>Controls exactly what each user can see.</p>
-
-        <div class="grid" style="margin-top:12px">
-          <div class="card pad col-12" style="background:rgba(8,15,27,.45)">
-            <h3>How it works</h3>
-            <ul>
-              <li>Grid of funds (rows) × managers (columns)</li>
-              <li>Check a cell to grant access; one manager can be assigned to multiple funds</li>
-              <li>Data is isolated: managers only see assigned funds</li>
-              <li>Changes apply immediately (no logout required)</li>
-            </ul>
-          </div>
-        </div>
+    <div id="assignments" class="glass-panel rounded-2xl p-7 border border-alknz-border">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="chip bg-blue-500/10 border border-blue-500/20 text-blue-400">4</div>
+        <h2 class="text-xl font-bold text-white">Assignments — Map fund managers to funds</h2>
       </div>
-    </section>
+      <p class="text-alknz-muted text-sm mb-4">Controls exactly what each user can see.</p>
+      <ul class="text-sm text-alknz-muted space-y-1.5">
+        <li>Grid of funds (rows) × managers (columns) — check a cell to grant access</li>
+        <li>One manager can be assigned to multiple funds</li>
+        <li>Data is fully isolated — managers only see assigned funds</li>
+        <li>Changes take effect immediately, no logout required</li>
+      </ul>
+    </div>
 
     <!-- 5 All Investors -->
-    <section class="grid" id="all-investors">
-      <div class="card pad col-12">
-        <div class="kicker">5. All Investors</div>
-        <h2>Unified investor view across all funds</h2>
-
-        <div class="grid" style="margin-top:12px">
-          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
-            <h3>What you see</h3>
-            <ul>
-              <li>Columns: name, fund, investor type, nationality, stage, relationship strength, expected ticket</li>
-              <li>Relationship strength is colour-coded: cold / warm / direct</li>
-            </ul>
-          </div>
-          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
-            <h3>What you can do</h3>
-            <ul>
-              <li><b>Search</b>: name, firm, email</li>
-              <li><b>Filter</b>: fund, stage, nationality, investor type, relationship strength</li>
-              <li><b>Open profile</b>: click any row for read-only drawer</li>
-            </ul>
-          </div>
+    <div id="all-investors" class="glass-panel rounded-2xl p-7 border border-alknz-border">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="chip bg-blue-500/10 border border-blue-500/20 text-blue-400">5</div>
+        <h2 class="text-xl font-bold text-white">All Investors — Unified view across all funds</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="text-sm font-bold text-white mb-2">What you see</h3>
+          <ul class="text-sm text-alknz-muted space-y-1.5">
+            <li>Columns: name, fund, investor type, nationality, stage, relationship strength, expected ticket</li>
+            <li>Relationship strength is colour-coded: cold / warm / direct</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-sm font-bold text-white mb-2">What you can do</h3>
+          <ul class="text-sm text-alknz-muted space-y-1.5">
+            <li><strong class="text-white">Search</strong> — name, firm, email</li>
+            <li><strong class="text-white">Filter</strong> — fund, stage, nationality, investor type, relationship strength</li>
+            <li><strong class="text-white">Open profile</strong> — click any row for a read-only profile drawer</li>
+          </ul>
         </div>
       </div>
-    </section>
+    </div>
 
     <!-- 6 Duplicate Detection -->
-    <section class="grid" id="duplicate-detection">
-      <div class="card pad col-12">
-        <div class="kicker">6. Duplicate Detection</div>
-        <h2>Finds investors across multiple funds</h2>
-
-        <div class="grid" style="margin-top:12px">
-          <div class="card pad col-12" style="background:rgba(8,15,27,.45)">
-            <h3>How it works</h3>
-            <ul>
-              <li>Fuzzy matching across: (1) name, (2) emails, (3) LinkedIn URLs</li>
-              <li>Shows suspected pairs with confidence score (0–100%)</li>
-              <li><b>Merge</b>: pick a “winner”; preserves tasks, call logs, pipeline history, and interactions</li>
-              <li><b>Dismiss</b>: mark as not a true duplicate to remove from queue</li>
-            </ul>
-          </div>
-        </div>
+    <div id="duplicate-detection" class="glass-panel rounded-2xl p-7 border border-alknz-border">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="chip bg-blue-500/10 border border-blue-500/20 text-blue-400">6</div>
+        <h2 class="text-xl font-bold text-white">Duplicate Detection — AI-powered cross-fund deduplication</h2>
       </div>
-    </section>
+      <ul class="text-sm text-alknz-muted space-y-1.5">
+        <li>Fuzzy matching on three signals: (1) investor name, (2) email addresses, (3) LinkedIn URLs</li>
+        <li>Suspected duplicates appear as side-by-side pairs with a confidence score (0–100%)</li>
+        <li><strong class="text-white">Merge</strong> — choose a winner; all tasks, call logs, pipeline history, and interactions are preserved</li>
+        <li><strong class="text-white">Dismiss</strong> — mark as not a duplicate so it stops appearing in the queue</li>
+      </ul>
+    </div>
 
     <!-- 7 Investor Requests -->
-    <section class="grid" id="investor-requests">
-      <div class="card pad col-12">
-        <div class="kicker">7. Investor Requests</div>
-        <h2>Queue from Chrome Extension captures</h2>
-
-        <div class="grid" style="margin-top:12px">
-          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
-            <h3>What you see</h3>
-            <ul>
-              <li>Card: capturing member, source URL, capture date, extracted fields</li>
-              <li>Status: Pending / Approved / Rejected</li>
-            </ul>
-          </div>
-          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
-            <h3>What you can do</h3>
-            <ul>
-              <li><b>Approve</b>: adds investor to selected fund instantly</li>
-              <li><b>Reject</b>: discard (optional reason), retained in archive for audit</li>
-              <li><b>Filter</b>: All / Pending / Approved / Rejected</li>
-            </ul>
-          </div>
+    <div id="investor-requests" class="glass-panel rounded-2xl p-7 border border-alknz-border">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="chip bg-blue-500/10 border border-blue-500/20 text-blue-400">7</div>
+        <h2 class="text-xl font-bold text-white">Investor Requests — Queue from Chrome Extension captures</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="text-sm font-bold text-white mb-2">What you see</h3>
+          <ul class="text-sm text-alknz-muted space-y-1.5">
+            <li>Card: capturing member, source URL, capture date, extracted fields</li>
+            <li>Status badge: Pending / Approved / Rejected</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-sm font-bold text-white mb-2">What you can do</h3>
+          <ul class="text-sm text-alknz-muted space-y-1.5">
+            <li><strong class="text-white">Approve</strong> — adds investor to the selected fund instantly</li>
+            <li><strong class="text-white">Reject</strong> — discards capture (optional reason), retained in archive</li>
+            <li><strong class="text-white">Filter</strong> — All / Pending / Approved / Rejected</li>
+          </ul>
         </div>
       </div>
-    </section>
+    </div>
 
     <!-- 8 Personas Analytics -->
-    <section class="grid" id="personas-analytics">
-      <div class="card pad col-12">
-        <div class="kicker">8. Personas Analytics</div>
-        <h2>Platform-wide persona coverage</h2>
+    <div id="personas-analytics" class="glass-panel rounded-2xl p-7 border border-alknz-border">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="chip bg-blue-500/10 border border-blue-500/20 text-blue-400">8</div>
+        <h2 class="text-xl font-bold text-white">Personas Analytics — Platform-wide persona coverage</h2>
+      </div>
+      <ul class="text-sm text-alknz-muted space-y-1.5">
+        <li><strong class="text-white">KPI cards</strong> — total personas, investors with 50%+ match score, average match score platform-wide</li>
+        <li><strong class="text-white">Per-fund table</strong> — persona count and % of investors matched at 50%+</li>
+        <li><strong class="text-white">Persona leaderboard</strong> — all personas ranked by matched investor count</li>
+        <li><strong class="text-white">Unmatched pool</strong> — investors below 50% on all personas (signals for new personas)</li>
+      </ul>
+    </div>
 
-        <div class="grid" style="margin-top:12px">
-          <div class="card pad col-12" style="background:rgba(8,15,27,.45)">
-            <h3>What you see</h3>
-            <ul>
-              <li>KPI cards: total personas, investors with 50%+ match, average match score</li>
-              <li>Per-fund table: persona count and % matched at 50%+</li>
-              <li>Persona leaderboard ranked by matched investor count</li>
-              <li>Unmatched pool: investors below 50% on all personas (signals for new personas)</li>
-            </ul>
-          </div>
+    <!-- 9 Feedback -->
+    <div id="feedback" class="glass-panel rounded-2xl p-7 border border-alknz-border">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="chip bg-blue-500/10 border border-blue-500/20 text-blue-400">9</div>
+        <h2 class="text-xl font-bold text-white">Feedback Responses — User testing feedback</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="text-sm font-bold text-white mb-2">What you see</h3>
+          <ul class="text-sm text-alknz-muted space-y-1.5">
+            <li><strong class="text-white">Stats bar</strong> — total responses, avg intuitiveness (1–5), % requesting more AI</li>
+            <li><strong class="text-white">Response table</strong> — submitter, role, date, score, comment preview; expand row for full response</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-sm font-bold text-white mb-2">What you can do</h3>
+          <ul class="text-sm text-alknz-muted space-y-1.5">
+            <li><strong class="text-white">Filter</strong> — by role (Admin / Fund Manager), date range, keyword search</li>
+            <li><strong class="text-white">Export CSV</strong> — download all responses as a spreadsheet</li>
+          </ul>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- 9 Feedback Responses -->
-    <section class="grid" id="feedback">
-      <div class="card pad col-12">
-        <div class="kicker">9. Feedback Responses</div>
-        <h2>User testing feedback (admins + fund managers)</h2>
-
-        <div class="grid" style="margin-top:12px">
-          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
-            <h3>What you see</h3>
-            <ul>
-              <li>Stats: response count, avg intuitiveness (1–5), % requesting more AI</li>
-              <li>Table: submitter, role, date, score, comment preview; expand for full response</li>
-            </ul>
-          </div>
-          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
-            <h3>What you can do</h3>
-            <ul>
-              <li><b>Filter</b>: role, date range, keyword search</li>
-              <li><b>Export CSV</b>: download all responses</li>
-            </ul>
-          </div>
-        </div>
+    <!-- Next -->
+    <div class="bg-blue-900/10 border border-blue-500/20 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div>
+        <div class="text-blue-400 font-bold text-xs uppercase tracking-[0.3em] mb-2">Up Next</div>
+        <div class="text-xl font-bold text-white">Fund Manager Guide</div>
+        <div class="text-sm text-alknz-muted mt-1">7-tab dashboard guide: Capital Overview, Tasks, Profiles, Pipeline, Comms, Research Capture, Personas.</div>
       </div>
-    </section>
+      <a href="fund-manager.html" class="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-bold text-sm uppercase tracking-wide flex items-center gap-2 transition-all whitespace-nowrap">
+        Fund Manager Guide <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
 
-    <footer class="footer">
-      <div>© 2026 ALKNZ Ventures — Admin Guide</div>
-      <div><a href="fund-manager.html">Next: Fund Manager Guide →</a></div>
-    </footer>
-  </main>
+  </div>
+</main>
 
-  <script src="assets/app.js"></script>
+<!-- ── Footer ── -->
+<footer class="bg-black border-t border-alknz-border py-10 relative z-10">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+    <div class="flex items-center gap-2">
+      <div class="w-6 h-6 bg-blue-600 rounded flex items-center justify-center text-white font-bold text-[10px]">A</div>
+      <span class="text-sm font-bold tracking-widest text-white uppercase">ALKNZ</span>
+    </div>
+    <div class="flex gap-6 text-xs text-slate-600 font-bold uppercase tracking-widest">
+      <a href="index.html" class="hover:text-white transition-colors">Overview</a>
+      <a href="fund-manager.html" class="hover:text-white transition-colors">Fund Manager</a>
+      <a href="extension.html" class="hover:text-white transition-colors">Extension</a>
+      <a href="demo.html" class="hover:text-white transition-colors">Demo</a>
+    </div>
+    <div class="text-[10px] font-bold text-slate-600 uppercase tracking-widest">© 2026 ALKNZ Ventures | Internal</div>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
 </body>
 </html>

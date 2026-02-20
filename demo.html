@@ -1,401 +1,392 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Try the Demo — ALKNZ Portal</title>
-  <meta name="description" content="Try the ALKNZ Fund Manager Portal live. Pre-loaded with GCC demo data. No setup required."/>
-  <link rel="stylesheet" href="assets/style.css" />
+  <meta name="description" content="Try the ALKNZ Fund Manager Portal live. Pre-loaded with GCC demo data."/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="assets/style.css"/>
+
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: { alknz: { bg:'#020408', surface:'#0f172a', border:'#1e293b', primary:'#3b82f6', accent:'#6366f1', text:'#f8fafc', muted:'#94a3b8' } },
+        fontFamily: { sans:['Inter','sans-serif'] }
+      }}
+    }
+  </script>
 </head>
-<body>
+<body class="antialiased min-h-screen flex flex-col">
 
-<!-- ── Navigation ──────────────────────────────────────────────────────── -->
-<header class="topbar">
-  <div class="topbar-inner">
-    <div class="brand">
-      <span class="brand-badge" aria-hidden="true"></span>
-      <span>ALKNZ Portal</span>
-      <span class="pill"><span class="dot"></span>live demo</span>
+<!-- ── Nav ── -->
+<nav class="fixed top-0 w-full z-50 glass-panel border-b border-alknz-border">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+    <a href="index.html" class="flex items-center gap-3">
+      <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center shadow-lg shadow-blue-500/20">
+        <span class="text-white font-bold text-xl">A</span>
+      </div>
+      <div class="flex flex-col">
+        <span class="text-xl font-bold tracking-widest text-white">ALKNZ</span>
+        <span class="text-[10px] text-alknz-muted tracking-[0.2em] uppercase">Live Demo</span>
+      </div>
+    </a>
+    <div class="hidden md:flex items-center gap-8 text-xs font-bold uppercase tracking-widest text-alknz-muted">
+      <a href="index.html"        class="nav-item hover:text-white transition-colors py-2">Overview</a>
+      <a href="admin.html"        class="nav-item hover:text-white transition-colors py-2">Admin</a>
+      <a href="fund-manager.html" class="nav-item hover:text-white transition-colors py-2">Fund Manager</a>
+      <a href="extension.html"    class="nav-item hover:text-white transition-colors py-2">Extension</a>
+      <a href="demo.html"         class="nav-item hover:text-white transition-colors py-2">Demo</a>
     </div>
-    <nav>
-      <a href="index.html">Overview</a>
-      <a href="admin.html">Admin</a>
-      <a href="fund-manager.html">Fund Manager</a>
-      <a href="extension.html">Chrome Extension</a>
-      <a href="demo.html">Demo</a>
-    </nav>
+    <a href="https://alknz-web.onrender.com/login" target="_blank" rel="noopener noreferrer"
+       class="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-lg transition-all shadow-lg shadow-blue-600/20 text-xs font-bold uppercase tracking-wide flex items-center gap-2">
+      Open Portal <i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i>
+    </a>
   </div>
-</header>
+</nav>
 
-<!-- ── Hero ─────────────────────────────────────────────────────────────── -->
-<div class="demo-hero">
-  <div class="hero-badge">🚀 Live Demo</div>
-  <h1>Try <span class="gradient">ALKNZ</span> Right Now</h1>
-  <p>
-    Everything is pre-loaded. Pick a role below, sign in, and start exploring —
-    no setup, no configuration required.
-  </p>
-  <div class="hero-actions">
-    <a href="#credentials" class="btn btn-primary">Get Credentials ↓</a>
-    <a href="#admin-tour" class="btn btn-outline">See What to Explore ↓</a>
-  </div>
-</div>
+<main class="relative z-10 flex-grow pt-20">
 
-<!-- ── Credentials ────────────────────────────────────────────────────────── -->
-<section class="section" id="credentials" style="padding-top: 2.5rem; padding-bottom: 2.5rem;">
-  <div class="section-header" style="margin-bottom: 2rem;">
-    <span class="section-label">Demo Accounts</span>
-    <h2>Two roles, one platform</h2>
-    <p>Use either account to explore the portal. Both are pre-filled with GCC fundraising data — investors, tasks, personas, call logs, and email templates.</p>
-  </div>
-
-  <div class="cred-cards" style="max-width: 700px; margin: 0 auto 2rem;">
-    <div class="cred-card">
-      <div class="cred-card-header">
-        <span style="font-size:1.2rem;">🛡️</span>
-        <span class="cred-role-badge admin">Admin</span>
+  <!-- ── Hero ── -->
+  <section class="py-24 text-center">
+    <div class="max-w-4xl mx-auto px-6 animate-fade-in">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold tracking-widest uppercase mb-6">
+        <i class="fa-solid fa-rocket text-[10px]"></i> Live Demo
       </div>
-      <div class="cred-field">
-        <label>Name</label>
-        <code style="color:var(--muted); background:none; border:none; padding:0; font-size:0.88rem;">Demo Admin</code>
-      </div>
-      <div class="cred-field">
-        <label>Email</label>
-        <code>admin@demo.alknz.io</code>
-      </div>
-      <div class="cred-field">
-        <label>Password</label>
-        <code>Demo@Admin1</code>
-      </div>
-      <div style="margin-top: 1rem; display:flex; gap:8px; flex-wrap:wrap;">
-        <a href="https://alknz-web.onrender.com/login" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="flex:1; justify-content:center; font-size:0.85rem;">Sign In as Admin →</a>
-        <button class="btn small" data-copy="admin@demo.alknz.io">Copy Email</button>
-        <button class="btn small" data-copy="Demo@Admin1">Copy PW</button>
-      </div>
-    </div>
-    <div class="cred-card">
-      <div class="cred-card-header">
-        <span style="font-size:1.2rem;">💼</span>
-        <span class="cred-role-badge fm">Fund Manager</span>
-      </div>
-      <div class="cred-field">
-        <label>Name</label>
-        <code style="color:var(--muted); background:none; border:none; padding:0; font-size:0.88rem;">Sara Al-Rashid</code>
-      </div>
-      <div class="cred-field">
-        <label>Email</label>
-        <code>sara@demo.alknz.io</code>
-      </div>
-      <div class="cred-field">
-        <label>Password</label>
-        <code>Demo@FM2024</code>
-      </div>
-      <div style="margin-top: 1rem; display:flex; gap:8px; flex-wrap:wrap;">
-        <a href="https://alknz-web.onrender.com/login" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="flex:1; justify-content:center; font-size:0.85rem;">Sign In as Fund Manager →</a>
-        <button class="btn small" data-copy="sara@demo.alknz.io">Copy Email</button>
-        <button class="btn small" data-copy="Demo@FM2024">Copy PW</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="callout info" style="max-width: 700px; margin: 0 auto;">
-    <span class="callout-icon">ℹ️</span>
-    <div class="callout-body">
-      <h4>What's pre-loaded</h4>
-      <p>
-        Sara's account: <strong style="color:var(--text);">12 GCC investors</strong> across all 13 pipeline stages &nbsp;·&nbsp;
-        <strong style="color:var(--text);">26 tasks</strong> (auto + manual) &nbsp;·&nbsp;
-        <strong style="color:var(--text);">2 investor personas</strong> &nbsp;·&nbsp;
-        <strong style="color:var(--text);">4 call logs</strong> &nbsp;·&nbsp;
-        <strong style="color:var(--text);">4 email templates</strong> &nbsp;·&nbsp;
-        Fund: Watheeq Proptech SPV II (SAR 50M target)
+      <h1 class="text-6xl font-bold leading-tight mb-5">
+        Try <span class="gradient-text">ALKNZ</span> Right Now
+      </h1>
+      <p class="text-alknz-muted text-xl leading-relaxed mb-8 max-w-2xl mx-auto">
+        Everything is pre-loaded. Pick a role below, sign in, and start exploring — no setup, no configuration required.
       </p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="#credentials"
+           class="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-bold text-sm uppercase tracking-wide flex items-center gap-2 transition-all shadow-xl shadow-blue-600/25">
+          Get Credentials <i class="fa-solid fa-chevron-down"></i>
+        </a>
+        <a href="#admin-tour"
+           class="px-8 py-4 bg-alknz-surface hover:bg-slate-800 text-white rounded-xl font-bold text-sm uppercase tracking-wide flex items-center gap-2 border border-alknz-border transition-all">
+          See What to Explore <i class="fa-solid fa-chevron-down"></i>
+        </a>
+      </div>
     </div>
+  </section>
+
+  <!-- ── Credentials ── -->
+  <section class="py-16 border-t border-alknz-border/60" id="credentials">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-10">
+        <span class="text-blue-500 font-bold text-xs uppercase tracking-[0.3em] block mb-3">Demo Accounts</span>
+        <h2 class="text-3xl font-bold text-white">Two roles, one platform</h2>
+        <p class="text-alknz-muted mt-3 max-w-xl mx-auto">Both accounts are pre-filled with GCC fundraising data — investors, tasks, personas, call logs, and email templates.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto mb-8">
+        <!-- Admin -->
+        <div class="glass-panel rounded-2xl p-7 border border-alknz-border">
+          <div class="flex items-center gap-3 mb-5">
+            <span class="text-2xl">🛡️</span>
+            <div class="chip bg-red-500/10 border border-red-500/20 text-red-400">Admin</div>
+          </div>
+          <div class="space-y-3 mb-5">
+            <div class="flex justify-between items-center text-sm border-b border-alknz-border pb-2">
+              <span class="text-alknz-muted text-xs font-bold uppercase tracking-wide">Name</span>
+              <span class="text-slate-300 text-xs">Demo Admin</span>
+            </div>
+            <div class="flex justify-between items-center text-sm border-b border-alknz-border pb-2">
+              <span class="text-alknz-muted text-xs font-bold uppercase tracking-wide">Email</span>
+              <code class="text-xs text-blue-300">admin@demo.alknz.io</code>
+            </div>
+            <div class="flex justify-between items-center text-sm">
+              <span class="text-alknz-muted text-xs font-bold uppercase tracking-wide">Password</span>
+              <code class="text-xs text-blue-300">Demo@Admin1</code>
+            </div>
+          </div>
+          <a href="https://alknz-web.onrender.com/login" target="_blank" rel="noopener noreferrer"
+             class="w-full px-4 py-2.5 bg-blue-600 hover:bg-blue-500 text-white rounded-lg font-bold text-xs uppercase tracking-wide flex items-center justify-center gap-2 transition-all mb-2">
+            Sign In as Admin <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <div class="flex gap-2">
+            <button data-copy="admin@demo.alknz.io" class="flex-1 px-3 py-1.5 bg-alknz-surface border border-alknz-border rounded-lg text-[10px] font-bold uppercase tracking-wide text-alknz-muted hover:text-white transition-colors">Copy Email</button>
+            <button data-copy="Demo@Admin1" class="flex-1 px-3 py-1.5 bg-alknz-surface border border-alknz-border rounded-lg text-[10px] font-bold uppercase tracking-wide text-alknz-muted hover:text-white transition-colors">Copy PW</button>
+          </div>
+        </div>
+
+        <!-- Fund Manager -->
+        <div class="glass-panel rounded-2xl p-7 border border-alknz-border">
+          <div class="flex items-center gap-3 mb-5">
+            <span class="text-2xl">💼</span>
+            <div class="chip bg-blue-500/10 border border-blue-500/20 text-blue-400">Fund Manager</div>
+          </div>
+          <div class="space-y-3 mb-5">
+            <div class="flex justify-between items-center text-sm border-b border-alknz-border pb-2">
+              <span class="text-alknz-muted text-xs font-bold uppercase tracking-wide">Name</span>
+              <span class="text-slate-300 text-xs">Sara Al-Rashid</span>
+            </div>
+            <div class="flex justify-between items-center text-sm border-b border-alknz-border pb-2">
+              <span class="text-alknz-muted text-xs font-bold uppercase tracking-wide">Email</span>
+              <code class="text-xs text-blue-300">sara@demo.alknz.io</code>
+            </div>
+            <div class="flex justify-between items-center text-sm">
+              <span class="text-alknz-muted text-xs font-bold uppercase tracking-wide">Password</span>
+              <code class="text-xs text-blue-300">Demo@FM2024</code>
+            </div>
+          </div>
+          <a href="https://alknz-web.onrender.com/login" target="_blank" rel="noopener noreferrer"
+             class="w-full px-4 py-2.5 bg-blue-600 hover:bg-blue-500 text-white rounded-lg font-bold text-xs uppercase tracking-wide flex items-center justify-center gap-2 transition-all mb-2">
+            Sign In as Fund Manager <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <div class="flex gap-2">
+            <button data-copy="sara@demo.alknz.io" class="flex-1 px-3 py-1.5 bg-alknz-surface border border-alknz-border rounded-lg text-[10px] font-bold uppercase tracking-wide text-alknz-muted hover:text-white transition-colors">Copy Email</button>
+            <button data-copy="Demo@FM2024" class="flex-1 px-3 py-1.5 bg-alknz-surface border border-alknz-border rounded-lg text-[10px] font-bold uppercase tracking-wide text-alknz-muted hover:text-white transition-colors">Copy PW</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pre-loaded callout -->
+      <div class="max-w-3xl mx-auto bg-blue-900/10 border border-blue-500/20 rounded-2xl p-6 flex gap-4">
+        <i class="fa-solid fa-circle-info text-blue-400 text-lg flex-shrink-0 mt-0.5"></i>
+        <div>
+          <div class="text-sm font-bold text-white mb-1">What's pre-loaded in Sara's account</div>
+          <p class="text-sm text-alknz-muted">
+            <strong class="text-white">12 GCC investors</strong> across all 13 pipeline stages &nbsp;·&nbsp;
+            <strong class="text-white">26 tasks</strong> (auto + manual) &nbsp;·&nbsp;
+            <strong class="text-white">2 investor personas</strong> &nbsp;·&nbsp;
+            <strong class="text-white">4 call logs</strong> &nbsp;·&nbsp;
+            <strong class="text-white">4 email templates</strong> &nbsp;·&nbsp;
+            Fund: Watheeq Proptech SPV II (SAR 50M target)
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Admin Tour ── -->
+  <section class="py-16 border-t border-alknz-border/60" id="admin-tour">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-10">
+        <span class="text-blue-500 font-bold text-xs uppercase tracking-[0.3em] block mb-3">Admin Tour</span>
+        <h2 class="text-3xl font-bold text-white">What to explore as Admin</h2>
+        <p class="text-alknz-muted mt-3">Sign in as <strong class="text-white">admin@demo.alknz.io</strong> and follow these steps.</p>
+      </div>
+
+      <div class="glass-panel rounded-2xl overflow-hidden max-w-3xl mx-auto">
+        <div class="flex items-center gap-4 p-5 border-b border-alknz-border bg-alknz-bg/40">
+          <div class="w-11 h-11 rounded-xl bg-red-500/10 flex items-center justify-center text-xl flex-shrink-0">🛡️</div>
+          <div>
+            <div class="text-sm font-bold text-white">Admin Account</div>
+            <div class="text-xs text-alknz-muted">admin@demo.alknz.io &nbsp;/&nbsp; Demo@Admin1</div>
+          </div>
+          <a href="https://alknz-web.onrender.com/login" target="_blank" rel="noopener noreferrer"
+             class="ml-auto px-4 py-1.5 border border-alknz-border rounded-lg text-xs font-bold uppercase tracking-wide text-alknz-muted hover:text-white hover:border-blue-500/50 transition-all">
+            Sign In →
+          </a>
+        </div>
+        <div class="divide-y divide-alknz-border">
+          <div class="flex gap-4 p-5 hover:bg-blue-500/5 transition-colors">
+            <div class="step-num text-sm flex-shrink-0" style="background:linear-gradient(135deg,#EF4444,#DC2626)">1</div>
+            <div><div class="text-sm font-bold text-white mb-1">Dashboard — Platform snapshot</div><p class="text-sm text-alknz-muted">You land here automatically. See total investor count across all funds, active fund count, team member count, and aggregate committed capital. The fund health table lists each fund with its assigned manager and % to close.</p></div>
+          </div>
+          <div class="flex gap-4 p-5 hover:bg-blue-500/5 transition-colors">
+            <div class="step-num text-sm flex-shrink-0" style="background:linear-gradient(135deg,#EF4444,#DC2626)">2</div>
+            <div><div class="text-sm font-bold text-white mb-1">Users — See the fund manager accounts</div><p class="text-sm text-alknz-muted">Click Users in the left sidebar. You'll see Sara Al-Rashid's account with her email, active status, and last login timestamp. Try creating a new user — the system auto-generates a temporary password.</p></div>
+          </div>
+          <div class="flex gap-4 p-5 hover:bg-blue-500/5 transition-colors">
+            <div class="step-num text-sm flex-shrink-0" style="background:linear-gradient(135deg,#EF4444,#DC2626)">3</div>
+            <div><div class="text-sm font-bold text-white mb-1">Funds — Inspect the demo fund</div><p class="text-sm text-alknz-muted">Click Funds. You'll see "Watheeq Proptech SPV II" — an SAR 50M SPV. Click it to see the full configuration: investment thesis, target sectors (Real Estate, PropTech, Infrastructure), and focus regions (GCC, Saudi Arabia, UAE).</p></div>
+          </div>
+          <div class="flex gap-4 p-5 hover:bg-blue-500/5 transition-colors">
+            <div class="step-num text-sm flex-shrink-0" style="background:linear-gradient(135deg,#EF4444,#DC2626)">4</div>
+            <div><div class="text-sm font-bold text-white mb-1">Assignments — See how access is mapped</div><p class="text-sm text-alknz-muted">Click Assignments. The grid shows Sara is assigned to Watheeq Proptech SPV II. Try toggling her assignment off — she would immediately lose access to that fund.</p></div>
+          </div>
+          <div class="flex gap-4 p-5 hover:bg-blue-500/5 transition-colors">
+            <div class="step-num text-sm flex-shrink-0" style="background:linear-gradient(135deg,#EF4444,#DC2626)">5</div>
+            <div><div class="text-sm font-bold text-white mb-1">All Investors — Cross-fund database</div><p class="text-sm text-alknz-muted">Click All Investors. All 12 demo investors appear with their fund, pipeline stage, relationship strength, and ticket size. Use filters to narrow by stage or nationality. Click any row to open a profile drawer.</p></div>
+          </div>
+          <div class="flex gap-4 p-5 hover:bg-blue-500/5 transition-colors">
+            <div class="step-num text-sm flex-shrink-0" style="background:linear-gradient(135deg,#EF4444,#DC2626)">6</div>
+            <div><div class="text-sm font-bold text-white mb-1">Personas Analytics — Platform-wide persona health</div><p class="text-sm text-alknz-muted">Click Personas Analytics. See the 2 personas defined for Watheeq Proptech SPV II, how many investors match at 50%+, and the persona leaderboard. Log in as Sara first and run AI analysis to see scores populate here.</p></div>
+          </div>
+          <div class="flex gap-4 p-5 hover:bg-blue-500/5 transition-colors">
+            <div class="step-num text-sm flex-shrink-0" style="background:linear-gradient(135deg,#EF4444,#DC2626)">7</div>
+            <div><div class="text-sm font-bold text-white mb-1">Feedback Responses — Submit and see it appear</div><p class="text-sm text-alknz-muted">Click Feedback Responses. Then open a new tab, log in as Sara, and submit a feedback form from her dashboard header. Come back — the submission appears immediately with Sara's score and comments.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FM Tour ── -->
+  <section class="py-16 border-t border-alknz-border/60" id="fm-tour">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-10">
+        <span class="text-blue-500 font-bold text-xs uppercase tracking-[0.3em] block mb-3">Fund Manager Tour</span>
+        <h2 class="text-3xl font-bold text-white">What to explore as Fund Manager</h2>
+        <p class="text-alknz-muted mt-3">Sign in as <strong class="text-white">sara@demo.alknz.io</strong> — each step explores a different dashboard tab.</p>
+      </div>
+
+      <div class="glass-panel rounded-2xl overflow-hidden max-w-3xl mx-auto">
+        <div class="flex items-center gap-4 p-5 border-b border-alknz-border bg-alknz-bg/40">
+          <div class="w-11 h-11 rounded-xl bg-blue-500/10 flex items-center justify-center text-xl flex-shrink-0">💼</div>
+          <div>
+            <div class="text-sm font-bold text-white">Fund Manager — Sara Al-Rashid</div>
+            <div class="text-xs text-alknz-muted">sara@demo.alknz.io &nbsp;/&nbsp; Demo@FM2024</div>
+          </div>
+          <a href="https://alknz-web.onrender.com/login" target="_blank" rel="noopener noreferrer"
+             class="ml-auto px-4 py-1.5 border border-alknz-border rounded-lg text-xs font-bold uppercase tracking-wide text-alknz-muted hover:text-white hover:border-blue-500/50 transition-all">
+            Sign In →
+          </a>
+        </div>
+        <div class="divide-y divide-alknz-border">
+          <div class="flex gap-4 p-5 hover:bg-blue-500/5 transition-colors">
+            <div class="step-num text-sm flex-shrink-0" style="background:linear-gradient(135deg,#0047AB,#0052CC)">1</div>
+            <div><div class="text-sm font-bold text-white mb-1">Capital Overview — Check the raise status</div><p class="text-sm text-alknz-muted">You land here automatically. See the fund's target raise (SAR 50M), total committed capital, and % to close. The ticket size distribution chart shows how the raise is spread. The stage funnel shows investor counts per pipeline stage.</p></div>
+          </div>
+          <div class="flex gap-4 p-5 hover:bg-blue-500/5 transition-colors">
+            <div class="step-num text-sm flex-shrink-0" style="background:linear-gradient(135deg,#0047AB,#0052CC)">2</div>
+            <div><div class="text-sm font-bold text-white mb-1">Task Manager — See auto + manual tasks</div><p class="text-sm text-alknz-muted">Click the Tasks tab (bell icon shows 26 open tasks). Notice the ⚡ Auto badge on stage-generated tasks vs Manual. Filter by investor name or priority. Mark one complete with the checkbox.</p></div>
+          </div>
+          <div class="flex gap-4 p-5 hover:bg-blue-500/5 transition-colors">
+            <div class="step-num text-sm flex-shrink-0" style="background:linear-gradient(135deg,#0047AB,#0052CC)">3</div>
+            <div><div class="text-sm font-bold text-white mb-1">Investor Profiles — Open a full profile</div><p class="text-sm text-alknz-muted">Click Investor Profiles. Click "Faisal Al-Otaibi" — his 4-tab profile opens on the right. Browse Identity, Context (relationship strength: warm), Contact, and Personas (AI match scores). Click Edit to modify a field.</p></div>
+          </div>
+          <div class="flex gap-4 p-5 hover:bg-blue-500/5 transition-colors">
+            <div class="step-num text-sm flex-shrink-0" style="background:linear-gradient(135deg,#0047AB,#0052CC)">4</div>
+            <div><div class="text-sm font-bold text-white mb-1">Fundraising Pipeline — Drag a card to a new stage</div><p class="text-sm text-alknz-muted">Click the Pipeline tab. Find "Layla Hassan" in Prospects and drag her card to the "Intro Email" column — the move saves instantly. Go back to Task Manager to see the auto-generated tasks that just appeared for Layla.</p></div>
+          </div>
+          <div class="flex gap-4 p-5 hover:bg-blue-500/5 transition-colors">
+            <div class="step-num text-sm flex-shrink-0" style="background:linear-gradient(135deg,#0047AB,#0052CC)">5</div>
+            <div><div class="text-sm font-bold text-white mb-1">Communication Center — Call logs and templates</div><p class="text-sm text-alknz-muted">Click Communications → Call Logs. See 4 logged calls with outcomes and notes. Click Templates — 4 templates are pre-loaded: Intro Email, Follow-Up, Meeting Request, and Capital Call Letter. See how <code class="text-xs bg-alknz-surface border border-alknz-border px-1 py-0.5 rounded text-blue-300">{"{"}{"{"}investor_name{"}"}{"}"}</code> merge variables work.</p></div>
+          </div>
+          <div class="flex gap-4 p-5 hover:bg-blue-500/5 transition-colors">
+            <div class="step-num text-sm flex-shrink-0" style="background:linear-gradient(135deg,#0047AB,#0052CC)">6</div>
+            <div><div class="text-sm font-bold text-white mb-1">Personas — Run an AI analysis</div><p class="text-sm text-alknz-muted">Click Personas. See 2 archetypes: "GCC Real Estate HNWI" and "Family Office LP". Click Run AI Analysis — scores all 12 investors against both personas. Go to Investor Profiles → any investor → Personas tab to see match scores as progress bars.</p></div>
+          </div>
+          <div class="flex gap-4 p-5 hover:bg-blue-500/5 transition-colors">
+            <div class="step-num text-sm flex-shrink-0" style="background:linear-gradient(135deg,#0047AB,#0052CC)">7</div>
+            <div><div class="text-sm font-bold text-white mb-1">Research Capture — See the extension pipeline</div><p class="text-sm text-alknz-muted">Click Research Capture. This is where Chrome Extension captures land for review. If you have the extension installed, capture a LinkedIn profile now — it appears here within seconds. Select the fund, click Accept — investor created and profile opens automatically.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Extension Tour ── -->
+  <section class="py-16 border-t border-alknz-border/60" id="extension-tour">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-10">
+        <span class="text-blue-500 font-bold text-xs uppercase tracking-[0.3em] block mb-3">Chrome Extension Tour</span>
+        <h2 class="text-3xl font-bold text-white">Capture an investor from any webpage</h2>
+        <p class="text-alknz-muted mt-3">About 5 minutes end-to-end. Browse a LinkedIn profile, capture it, and watch it appear in Research Capture.</p>
+      </div>
+
+      <div class="glass-panel rounded-2xl overflow-hidden max-w-3xl mx-auto">
+        <div class="flex items-center gap-4 p-5 border-b border-alknz-border bg-alknz-bg/40">
+          <div class="w-11 h-11 rounded-xl bg-indigo-500/10 flex items-center justify-center text-xl flex-shrink-0">🔌</div>
+          <div>
+            <div class="text-sm font-bold text-white">Chrome Extension — Full Flow</div>
+            <div class="text-xs text-alknz-muted">Chrome browser · Folder: <code class="text-blue-300">ALKNZ-Extension-v12/</code></div>
+          </div>
+          <a href="extension.html" class="ml-auto px-4 py-1.5 border border-alknz-border rounded-lg text-xs font-bold uppercase tracking-wide text-alknz-muted hover:text-white hover:border-blue-500/50 transition-all">
+            Install Guide →
+          </a>
+        </div>
+        <div class="divide-y divide-alknz-border">
+          <div class="flex gap-4 p-5 hover:bg-blue-500/5 transition-colors">
+            <div class="step-num text-sm flex-shrink-0" style="background:linear-gradient(135deg,#7C63F4,#3B82F6)">1</div>
+            <div><div class="text-sm font-bold text-white mb-1">Install the extension</div><p class="text-sm text-alknz-muted">In Chrome, go to <code class="text-xs bg-alknz-surface border border-alknz-border px-1.5 py-0.5 rounded text-blue-300">chrome://extensions/</code>, enable Developer Mode, click Load Unpacked, and select the <code class="text-xs bg-alknz-surface border border-alknz-border px-1.5 py-0.5 rounded text-blue-300">ALKNZ-Extension-v12/</code> folder. See the full <a href="extension.html" class="text-blue-400 hover:text-blue-300">Install Guide →</a></p></div>
+          </div>
+          <div class="flex gap-4 p-5 hover:bg-blue-500/5 transition-colors">
+            <div class="step-num text-sm flex-shrink-0" style="background:linear-gradient(135deg,#7C63F4,#3B82F6)">2</div>
+            <div><div class="text-sm font-bold text-white mb-1">Open Options and log in as Sara</div><p class="text-sm text-alknz-muted">Right-click the ALKNZ icon → Options. Set Backend URL to your deployed backend address. Enter Sara's credentials: <strong class="text-white">sara@demo.alknz.io</strong> / <strong class="text-white">Demo@FM2024</strong>. Click Test Connection → should show ✓ Connected.</p></div>
+          </div>
+          <div class="flex gap-4 p-5 hover:bg-blue-500/5 transition-colors">
+            <div class="step-num text-sm flex-shrink-0" style="background:linear-gradient(135deg,#7C63F4,#3B82F6)">3</div>
+            <div><div class="text-sm font-bold text-white mb-1">Visit a LinkedIn profile and open the side panel</div><p class="text-sm text-alknz-muted">Navigate to any LinkedIn person profile in Chrome. Click the ALKNZ icon to open the side panel. The extension auto-extracts name, job title, firm, and LinkedIn URL — fields appear pre-filled.</p></div>
+          </div>
+          <div class="flex gap-4 p-5 hover:bg-blue-500/5 transition-colors">
+            <div class="step-num text-sm flex-shrink-0" style="background:linear-gradient(135deg,#7C63F4,#3B82F6)">4</div>
+            <div><div class="text-sm font-bold text-white mb-1">Add context and upload</div><p class="text-sm text-alknz-muted">Set relationship strength (cold / warm / direct), add a note, fill in any missing fields. Click <strong class="text-white">Upload to Portal</strong> — a success confirmation appears in the panel.</p></div>
+          </div>
+          <div class="flex gap-4 p-5 hover:bg-blue-500/5 transition-colors">
+            <div class="step-num text-sm flex-shrink-0" style="background:linear-gradient(135deg,#7C63F4,#3B82F6)">5</div>
+            <div><div class="text-sm font-bold text-white mb-1">Accept in the portal and see the investor appear</div><p class="text-sm text-alknz-muted">Switch to the portal, log in as Sara, go to Research Capture. The capture appears as a pending card. Select Watheeq Proptech SPV II, click Accept — the dashboard switches to Investor Profiles and opens the new investor's panel automatically.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Tips ── -->
+  <section class="py-16 border-t border-alknz-border/60">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-10">
+        <span class="text-blue-500 font-bold text-xs uppercase tracking-[0.3em] block mb-3">Tips</span>
+        <h2 class="text-3xl font-bold text-white">Getting the most out of the demo</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <div class="glass-panel p-7 rounded-2xl border border-alknz-border">
+          <div class="w-11 h-11 rounded-xl bg-emerald-500/10 flex items-center justify-center text-xl mb-4">🔁</div>
+          <h3 class="text-base font-bold text-white mb-2">Try both roles together</h3>
+          <p class="text-sm text-alknz-muted">Open the admin account in one browser window and Sara's account in another. Actions Sara takes appear in real time on the admin side.</p>
+        </div>
+        <div class="glass-panel p-7 rounded-2xl border border-alknz-border">
+          <div class="w-11 h-11 rounded-xl bg-yellow-500/10 flex items-center justify-center text-xl mb-4">⚡</div>
+          <h3 class="text-base font-bold text-white mb-2">Watch auto-tasks appear</h3>
+          <p class="text-sm text-alknz-muted">In the Pipeline tab, drag an investor card to a new stage. Immediately switch to Task Manager — auto-generated tasks for that stage appear at the top within seconds.</p>
+        </div>
+        <div class="glass-panel p-7 rounded-2xl border border-alknz-border">
+          <div class="w-11 h-11 rounded-xl bg-indigo-500/10 flex items-center justify-center text-xl mb-4">🎭</div>
+          <h3 class="text-base font-bold text-white mb-2">Run a full AI persona analysis</h3>
+          <p class="text-sm text-alknz-muted">In the Personas tab, click Run AI Analysis. After it completes, every investor card shows a persona match % badge. Click any investor → Personas tab for the detailed score breakdown.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Final CTA ── -->
+  <section class="py-20 border-t border-alknz-border/60">
+    <div class="max-w-2xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold text-white mb-3">Ready? Sign in and explore.</h2>
+      <p class="text-alknz-muted mb-8">Everything is pre-loaded. No setup, no configuration — just log in and start exploring the platform end to end.</p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="https://alknz-web.onrender.com/login" target="_blank" rel="noopener noreferrer"
+           class="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-bold text-sm uppercase tracking-wide flex items-center gap-2 transition-all shadow-xl shadow-blue-600/25">
+          <i class="fa-solid fa-right-to-bracket"></i> Sign In to Portal
+        </a>
+        <a href="fund-manager.html" class="px-8 py-4 bg-alknz-surface hover:bg-slate-800 text-white rounded-xl font-bold text-sm uppercase tracking-wide flex items-center gap-2 border border-alknz-border transition-all">
+          FM Dashboard Guide <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a href="extension.html" class="px-8 py-4 bg-alknz-surface hover:bg-slate-800 text-white rounded-xl font-bold text-sm uppercase tracking-wide flex items-center gap-2 border border-alknz-border transition-all">
+          <i class="fa-brands fa-chrome"></i> Install Extension
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ── Footer ── -->
+<footer class="bg-black border-t border-alknz-border py-10 relative z-10">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+    <div class="flex items-center gap-2">
+      <div class="w-6 h-6 bg-blue-600 rounded flex items-center justify-center text-white font-bold text-[10px]">A</div>
+      <span class="text-sm font-bold tracking-widest text-white uppercase">ALKNZ</span>
+    </div>
+    <div class="flex gap-6 text-xs text-slate-600 font-bold uppercase tracking-widest">
+      <a href="index.html" class="hover:text-white transition-colors">Overview</a>
+      <a href="admin.html" class="hover:text-white transition-colors">Admin</a>
+      <a href="fund-manager.html" class="hover:text-white transition-colors">Fund Manager</a>
+      <a href="extension.html" class="hover:text-white transition-colors">Extension</a>
+    </div>
+    <div class="text-[10px] font-bold text-slate-600 uppercase tracking-widest">© 2026 ALKNZ Ventures | Internal</div>
   </div>
-</section>
-
-<hr class="divider" />
-
-<!-- ── Admin Tour ─────────────────────────────────────────────────────────── -->
-<section class="section" id="admin-tour">
-  <div class="section-header">
-    <span class="section-label">Admin Tour</span>
-    <h2>What to explore as Admin</h2>
-    <p>Sign in as <strong style="color:var(--text);">admin@demo.alknz.io</strong> and follow these steps to see the full admin picture.</p>
-  </div>
-
-  <div class="demo-role-block" style="max-width: 780px; margin: 0 auto;">
-    <div class="demo-role-header">
-      <div class="demo-role-icon" style="background: rgba(239,68,68,0.12);">🛡️</div>
-      <div>
-        <h3>Admin Account</h3>
-        <p>admin@demo.alknz.io &nbsp;/&nbsp; Demo@Admin1</p>
-      </div>
-      <a href="https://alknz-web.onrender.com/login" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="margin-left:auto; font-size:0.8rem; padding:0.4rem 1rem;">Sign In →</a>
-    </div>
-    <div class="demo-steps-list">
-
-      <div class="demo-step-item">
-        <div class="demo-step-num" style="background: linear-gradient(135deg, #EF4444, #DC2626);">1</div>
-        <div>
-          <h5>Dashboard — Platform snapshot</h5>
-          <p>You land here automatically. See the total investor count across all funds, active fund count, team member count, and aggregate committed capital. The fund health table below lists each fund with its assigned manager and % to close.</p>
-        </div>
-      </div>
-
-      <div class="demo-step-item">
-        <div class="demo-step-num" style="background: linear-gradient(135deg, #EF4444, #DC2626);">2</div>
-        <div>
-          <h5>Users — See the fund manager accounts</h5>
-          <p>Click Users in the left sidebar. You'll see Sara Al-Rashid's account with her email, active status, and last login timestamp. Try creating a new user — the system auto-generates a temporary password.</p>
-        </div>
-      </div>
-
-      <div class="demo-step-item">
-        <div class="demo-step-num" style="background: linear-gradient(135deg, #EF4444, #DC2626);">3</div>
-        <div>
-          <h5>Funds — Inspect the demo fund</h5>
-          <p>Click Funds. You'll see "Watheeq Proptech SPV II" — an SAR 50M SPV. Click it to see the full configuration: investment thesis, target sectors (Real Estate, PropTech, Infrastructure), and focus regions (GCC, Saudi Arabia, UAE).</p>
-        </div>
-      </div>
-
-      <div class="demo-step-item">
-        <div class="demo-step-num" style="background: linear-gradient(135deg, #EF4444, #DC2626);">4</div>
-        <div>
-          <h5>Assignments — See how access is mapped</h5>
-          <p>Click Assignments. The grid shows Sara is assigned to Watheeq Proptech SPV II. Try toggling her assignment off — she would immediately lose access to that fund when she next navigates.</p>
-        </div>
-      </div>
-
-      <div class="demo-step-item">
-        <div class="demo-step-num" style="background: linear-gradient(135deg, #EF4444, #DC2626);">5</div>
-        <div>
-          <h5>All Investors — Cross-fund database</h5>
-          <p>Click All Investors. All 12 demo investors appear here with their fund name, pipeline stage, relationship strength, and ticket size. Use the filters to narrow by stage or nationality. Click any investor row to open a profile drawer.</p>
-        </div>
-      </div>
-
-      <div class="demo-step-item">
-        <div class="demo-step-num" style="background: linear-gradient(135deg, #EF4444, #DC2626);">6</div>
-        <div>
-          <h5>Personas Analytics — Platform-wide persona health</h5>
-          <p>Click Personas Analytics. See the 2 personas defined for Watheeq Proptech SPV II, how many investors match at 50%+, and the persona leaderboard. Log in as Sara first and run an AI analysis to see scores populate here.</p>
-        </div>
-      </div>
-
-      <div class="demo-step-item">
-        <div class="demo-step-num" style="background: linear-gradient(135deg, #EF4444, #DC2626);">7</div>
-        <div>
-          <h5>Feedback Responses — Submit and see it appear</h5>
-          <p>Click Feedback Responses. Then open a new tab, log in as Sara, and submit a feedback form (accessible from her dashboard header). Come back to the admin panel — the submission appears here immediately with Sara's score and comments.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<hr class="divider" />
-
-<!-- ── Fund Manager Tour ───────────────────────────────────────────────────── -->
-<section class="section" id="fm-tour">
-  <div class="section-header">
-    <span class="section-label">Fund Manager Tour</span>
-    <h2>What to explore as Fund Manager</h2>
-    <p>Sign in as <strong style="color:var(--text);">sara@demo.alknz.io</strong> and follow these steps — each one explores a different tab of the dashboard.</p>
-  </div>
-
-  <div class="demo-role-block" style="max-width: 780px; margin: 0 auto;">
-    <div class="demo-role-header">
-      <div class="demo-role-icon" style="background: rgba(0,163,255,0.12);">💼</div>
-      <div>
-        <h3>Fund Manager — Sara Al-Rashid</h3>
-        <p>sara@demo.alknz.io &nbsp;/&nbsp; Demo@FM2024</p>
-      </div>
-      <a href="https://alknz-web.onrender.com/login" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="margin-left:auto; font-size:0.8rem; padding:0.4rem 1rem;">Sign In →</a>
-    </div>
-    <div class="demo-steps-list">
-
-      <div class="demo-step-item">
-        <div class="demo-step-num" style="background: linear-gradient(135deg, #0047AB, #0052CC);">1</div>
-        <div>
-          <h5>Capital Overview — Check the raise status</h5>
-          <p>You land here automatically. See the fund's target raise (SAR 50M), total committed capital, and % to close. The ticket size distribution chart shows how the raise is spread across investors. The stage funnel below shows investor counts per pipeline stage.</p>
-        </div>
-      </div>
-
-      <div class="demo-step-item">
-        <div class="demo-step-num" style="background: linear-gradient(135deg, #0047AB, #0052CC);">2</div>
-        <div>
-          <h5>Task Manager — See auto + manual tasks</h5>
-          <p>Click the Tasks tab (the bell icon shows 26 open tasks). Browse the list — notice the ⚡ Auto badge on stage-generated tasks versus the Manual badge on manually created ones. Filter by investor name or priority to narrow down your workload. Mark one complete with the checkbox.</p>
-        </div>
-      </div>
-
-      <div class="demo-step-item">
-        <div class="demo-step-num" style="background: linear-gradient(135deg, #0047AB, #0052CC);">3</div>
-        <div>
-          <h5>Investor Profiles — Open a full profile</h5>
-          <p>Click Investor Profiles. You'll see 12 GCC investors. Click "Faisal Al-Otaibi" — his 4-tab profile opens on the right. Browse Identity (name, firm, LinkedIn), Context (relationship strength: warm, decision role, notes), Contact (email, phone), and Personas (AI match scores). Click Edit to modify a field and Save to apply.</p>
-        </div>
-      </div>
-
-      <div class="demo-step-item">
-        <div class="demo-step-num" style="background: linear-gradient(135deg, #0047AB, #0052CC);">4</div>
-        <div>
-          <h5>Fundraising Pipeline — Drag a card to a new stage</h5>
-          <p>Click the Pipeline tab. You'll see investors distributed across the 13 stage columns. Find "Layla Hassan" in Prospects and drag her card to the "Intro Email" column. Drop it — the move saves instantly. Now go back to Task Manager and notice the auto-generated tasks that just appeared for Layla in the Intro Email stage.</p>
-        </div>
-      </div>
-
-      <div class="demo-step-item">
-        <div class="demo-step-num" style="background: linear-gradient(135deg, #0047AB, #0052CC);">5</div>
-        <div>
-          <h5>Communication Center — Read call logs and templates</h5>
-          <p>Click Communications → Call Logs. You'll see 4 logged calls with outcomes (Interested, Follow-Up Needed, etc.) and notes. Click Templates — 4 email templates are pre-loaded: Intro Email, Follow-Up, Meeting Request, and Capital Call Letter. Click one to see how merge variables like <code>{{investor_name}}</code> work.</p>
-        </div>
-      </div>
-
-      <div class="demo-step-item">
-        <div class="demo-step-num" style="background: linear-gradient(135deg, #0047AB, #0052CC);">6</div>
-        <div>
-          <h5>Personas — Run an AI analysis</h5>
-          <p>Click Personas. You'll see 2 investor archetypes: "GCC Real Estate HNWI" and "Family Office LP". Click Run AI Analysis — the system scores all 12 investors against both personas. Once done, go to Investor Profiles → click any investor → Personas sub-tab to see their match scores as progress bars.</p>
-        </div>
-      </div>
-
-      <div class="demo-step-item">
-        <div class="demo-step-num" style="background: linear-gradient(135deg, #0047AB, #0052CC);">7</div>
-        <div>
-          <h5>Research Capture — See how the extension feeds the pipeline</h5>
-          <p>Click Research Capture. This is where investor profiles from the Chrome Extension land for review. If you have the extension installed, capture a LinkedIn profile now — it will appear here within seconds. Select the fund from the dropdown and click Accept — the investor is created and the dashboard jumps straight to their new profile.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<hr class="divider" />
-
-<!-- ── Extension Tour ─────────────────────────────────────────────────────── -->
-<section class="section" id="extension-tour">
-  <div class="section-header">
-    <span class="section-label">Chrome Extension Tour</span>
-    <h2>Capture an investor from any webpage</h2>
-    <p>This takes about 5 minutes end-to-end. You'll browse a LinkedIn profile, capture it, and watch it appear in Sara's Research Capture tab in real time.</p>
-  </div>
-
-  <div class="demo-role-block" style="max-width: 780px; margin: 0 auto;">
-    <div class="demo-role-header">
-      <div class="demo-role-icon" style="background: rgba(124,99,244,0.12);">🔌</div>
-      <div>
-        <h3>Chrome Extension — Full Flow</h3>
-        <p>Requires Chrome browser &nbsp;·&nbsp; Extension folder: <code>ALKNZ-Extension-v12/</code></p>
-      </div>
-      <a href="extension.html" class="btn btn-outline" style="margin-left:auto; font-size:0.8rem; padding:0.4rem 1rem;">Install Guide →</a>
-    </div>
-    <div class="demo-steps-list">
-
-      <div class="demo-step-item">
-        <div class="demo-step-num" style="background: linear-gradient(135deg, #7C63F4, #3B82F6);">1</div>
-        <div>
-          <h5>Install the extension</h5>
-          <p>In Chrome, go to <code>chrome://extensions/</code>, enable Developer Mode, click Load Unpacked, and select the <code>ALKNZ-Extension-v12/</code> folder from the project directory. Pin the ALKNZ icon to your toolbar. See the full <a href="extension.html" style="color:var(--accent);">Install Guide →</a> for detailed steps.</p>
-        </div>
-      </div>
-
-      <div class="demo-step-item">
-        <div class="demo-step-num" style="background: linear-gradient(135deg, #7C63F4, #3B82F6);">2</div>
-        <div>
-          <h5>Open Options and log in as Sara</h5>
-          <p>Right-click the ALKNZ icon → Options. Set Backend URL to your deployed backend address. Click Log In and enter Sara's credentials: <strong style="color:var(--text);">sara@demo.alknz.io</strong> / <strong style="color:var(--text);">Demo@FM2024</strong>. Click Test Connection — you should see ✓ Connected with the investor count.</p>
-        </div>
-      </div>
-
-      <div class="demo-step-item">
-        <div class="demo-step-num" style="background: linear-gradient(135deg, #7C63F4, #3B82F6);">3</div>
-        <div>
-          <h5>Visit a LinkedIn profile and open the side panel</h5>
-          <p>Navigate to any LinkedIn person profile in Chrome (e.g. search for a VC investor in the GCC). Click the ALKNZ icon in the toolbar to open the side panel. The extension automatically extracts the person's name, job title, firm, and LinkedIn URL from the page — fields appear pre-filled in the panel.</p>
-        </div>
-      </div>
-
-      <div class="demo-step-item">
-        <div class="demo-step-num" style="background: linear-gradient(135deg, #7C63F4, #3B82F6);">4</div>
-        <div>
-          <h5>Add context and upload</h5>
-          <p>In the side panel, set the relationship strength (cold / warm / direct), add a note about where you met this person or why they're relevant, and fill in any missing fields. When ready, click Upload to Portal. A success confirmation appears in the panel.</p>
-        </div>
-      </div>
-
-      <div class="demo-step-item">
-        <div class="demo-step-num" style="background: linear-gradient(135deg, #7C63F4, #3B82F6);">5</div>
-        <div>
-          <h5>Accept in the portal and see the investor appear</h5>
-          <p>Switch to the portal tab, log in as Sara, and go to Research Capture. The capture you just uploaded appears as a pending card with all extracted fields. Select Watheeq Proptech SPV II from the fund dropdown, then click Accept. The dashboard automatically switches to Investor Profiles and opens the new investor's detail panel — ready for you to complete their profile.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<hr class="divider" />
-
-<!-- ── Tips ───────────────────────────────────────────────────────────────── -->
-<section class="section" style="padding-top: 3rem; padding-bottom: 3rem;">
-  <div class="section-header" style="margin-bottom: 2rem;">
-    <span class="section-label">Tips</span>
-    <h2>Getting the most out of the demo</h2>
-  </div>
-
-  <div class="card-grid card-grid-3" style="max-width: 900px; margin: 0 auto;">
-    <div class="card">
-      <div class="card-icon" style="background: rgba(34,197,94,0.12);">🔁</div>
-      <h3>Try both roles together</h3>
-      <p>Open the admin account in one browser window and Sara's account in another. Actions Sara takes (capturing, accepting, moving stages) appear in real time on the admin side.</p>
-    </div>
-    <div class="card">
-      <div class="card-icon" style="background: rgba(242,201,76,0.12);">⚡</div>
-      <h3>Watch auto-tasks appear</h3>
-      <p>In the Pipeline tab, drag an investor card to a new stage. Then immediately switch to Task Manager — the auto-generated tasks for that stage appear at the top of the list within seconds.</p>
-    </div>
-    <div class="card">
-      <div class="card-icon" style="background: rgba(124,99,244,0.12);">🎭</div>
-      <h3>Run a full AI persona analysis</h3>
-      <p>In the Personas tab, click Run AI Analysis. After it completes, browse the investor list — every card now has a persona match % badge. Click any investor and open their Personas sub-tab to see the detailed score breakdown.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ── Final CTA ───────────────────────────────────────────────────────────── -->
-<section class="credentials-section" style="padding: 3.5rem 2rem;">
-  <div class="credentials-wrap">
-    <h2>Ready? Sign in and explore.</h2>
-    <p>Everything is pre-loaded. No setup, no configuration — just log in and start exploring the platform end to end.</p>
-    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-top:1.5rem;">
-      <a href="https://alknz-web.onrender.com/login" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size:0.95rem; padding: 0.75rem 1.75rem;">
-        Sign In to Portal →
-      </a>
-      <a href="fund-manager.html" class="btn btn-outline" style="font-size:0.95rem; padding: 0.75rem 1.75rem;">
-        FM Dashboard Guide →
-      </a>
-      <a href="extension.html" class="btn btn-outline" style="font-size:0.95rem; padding: 0.75rem 1.75rem;">
-        Install Extension →
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ── Footer ─────────────────────────────────────────────────────────────── -->
-<footer style="max-width:var(--max); margin:0 auto; padding:20px;">
-  <p>© 2026 ALKNZ Ventures &nbsp;·&nbsp;
-  <a href="index.html">Overview</a> &nbsp;·&nbsp;
-  <a href="admin.html">Admin Guide</a> &nbsp;·&nbsp;
-  <a href="fund-manager.html">FM Guide</a> &nbsp;·&nbsp;
-  <a href="extension.html">Chrome Extension</a>
-  </p>
 </footer>
 
 <script src="assets/app.js"></script>

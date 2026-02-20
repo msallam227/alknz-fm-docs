@@ -1,301 +1,354 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>ALKZN Portal — Fund Manager Guide</title>
-  <meta name="description" content="Fund Manager dashboard feature reference for the ALKNZ Portal."/>
+  <title>ALKNZ Portal — Fund Manager Guide</title>
+  <meta name="description" content="Fund Manager dashboard feature reference for the ALKNZ Portal — 7 tabs, full feature breakdown."/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <link rel="stylesheet" href="assets/style.css"/>
+
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: { alknz: { bg:'#020408', surface:'#0f172a', border:'#1e293b', primary:'#3b82f6', accent:'#6366f1', text:'#f8fafc', muted:'#94a3b8' } },
+        fontFamily: { sans:['Inter','sans-serif'] }
+      }}
+    }
+  </script>
 </head>
-<body>
-  <header class="topbar">
-    <div class="topbar-inner">
-      <div class="brand">
-        <span class="brand-badge" aria-hidden="true"></span>
-        <span>ALKNZ Portal</span>
-        <span class="pill"><span class="dot"></span>fund manager</span>
+<body class="antialiased min-h-screen flex flex-col">
+
+<!-- ── Nav ── -->
+<nav class="fixed top-0 w-full z-50 glass-panel border-b border-alknz-border">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+    <a href="index.html" class="flex items-center gap-3">
+      <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center shadow-lg shadow-blue-500/20">
+        <span class="text-white font-bold text-xl">A</span>
       </div>
-      <nav>
-        <a href="index.html">Overview</a>
-        <a href="admin.html">Admin</a>
-        <a href="fund-manager.html">Fund Manager</a>
-        <a href="extension.html">Chrome Extension</a>
-        <a href="demo.html">Demo</a>
-      </nav>
+      <div class="flex flex-col">
+        <span class="text-xl font-bold tracking-widest text-white">ALKNZ</span>
+        <span class="text-[10px] text-alknz-muted tracking-[0.2em] uppercase">Fund Manager</span>
+      </div>
+    </a>
+    <div class="hidden md:flex items-center gap-8 text-xs font-bold uppercase tracking-widest text-alknz-muted">
+      <a href="index.html"        class="nav-item hover:text-white transition-colors py-2">Overview</a>
+      <a href="admin.html"        class="nav-item hover:text-white transition-colors py-2">Admin</a>
+      <a href="fund-manager.html" class="nav-item hover:text-white transition-colors py-2">Fund Manager</a>
+      <a href="extension.html"    class="nav-item hover:text-white transition-colors py-2">Extension</a>
+      <a href="demo.html"         class="nav-item hover:text-white transition-colors py-2">Demo</a>
     </div>
-  </header>
+    <a href="https://alknz-web.onrender.com/login" target="_blank" rel="noopener noreferrer"
+       class="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-lg transition-all shadow-lg shadow-blue-600/20 text-xs font-bold uppercase tracking-wide flex items-center gap-2">
+      Open Portal <i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i>
+    </a>
+  </div>
+</nav>
 
-  <main class="wrap">
-    <section class="hero">
-      <div>
-        <div class="kicker">Fund manager dashboard</div>
-        <h1>Fund Manager<br/>Feature Reference</h1>
-        <p class="sub">
-          Fund Manager view is scoped to the selected fund. If you’re assigned to multiple funds,
-          switch using the fund selector in the header.
-        </p>
+<main class="relative z-10 flex-grow pt-20">
 
-        <div class="btn-row">
-          <a class="btn primary" target="_blank" rel="noopener noreferrer" href="https://alknz-web.onrender.com/login">Open Portal Login</a>
-          <button class="btn" data-copy="sara@demo.alknz.io">Copy FM Email</button>
-          <button class="btn" data-copy="Demo@FM2024">Copy FM Password</button>
-        </div>
-
-        <div class="hr"></div>
-
-        <div class="callout">
-          <div class="tiny">
-            Fund Manager login: <code>sara@demo.alknz.io</code> / <code>Demo@FM2024</code>
+  <!-- ── Hero ── -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
+        <div class="animate-fade-in">
+          <span class="text-blue-500 font-bold text-xs uppercase tracking-[0.3em] block mb-4">Fund Manager Dashboard</span>
+          <h1 class="text-5xl font-bold leading-tight mb-5">
+            Fund Manager<br/><span class="gradient-text">Feature Reference</span>
+          </h1>
+          <p class="text-alknz-muted text-lg leading-relaxed mb-8 max-w-lg">
+            Fund Manager view is scoped to the selected fund. If assigned to multiple funds, switch using the fund selector in the header.
+          </p>
+          <div class="flex flex-wrap gap-3 mb-6">
+            <a href="https://alknz-web.onrender.com/login" target="_blank" rel="noopener noreferrer"
+               class="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-bold text-sm uppercase tracking-wide flex items-center gap-2 transition-all shadow-xl shadow-blue-600/25">
+              <i class="fa-solid fa-right-to-bracket"></i> Open Portal Login
+            </a>
+            <button data-copy="sara@demo.alknz.io"
+               class="px-6 py-3 bg-alknz-surface hover:bg-slate-800 text-white rounded-xl font-bold text-sm uppercase tracking-wide flex items-center gap-2 border border-alknz-border transition-all">
+              <i class="fa-solid fa-copy"></i> Copy Email
+            </button>
+            <button data-copy="Demo@FM2024"
+               class="px-6 py-3 bg-alknz-surface hover:bg-slate-800 text-white rounded-xl font-bold text-sm uppercase tracking-wide flex items-center gap-2 border border-alknz-border transition-all">
+              <i class="fa-solid fa-key"></i> Copy Password
+            </button>
+          </div>
+          <div class="p-4 rounded-xl bg-blue-900/10 border border-blue-500/20 text-xs text-alknz-muted">
+            Login: <code class="bg-alknz-surface border border-alknz-border px-1.5 py-0.5 rounded text-slate-300">sara@demo.alknz.io</code>
+            &nbsp;/&nbsp;
+            <code class="bg-alknz-surface border border-alknz-border px-1.5 py-0.5 rounded text-slate-300">Demo@FM2024</code>
           </div>
         </div>
+        <div class="glass-panel rounded-2xl p-7 animate-fade-in" style="animation-delay:.1s">
+          <span class="text-blue-500 font-bold text-xs uppercase tracking-[0.3em] block mb-4">7 Tabs</span>
+          <h2 class="text-xl font-bold text-white mb-4">Dashboard Navigation</h2>
+          <ul class="space-y-2">
+            <li class="flex items-center gap-3 text-sm text-alknz-muted"><span class="w-6 h-6 rounded-full bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 text-[10px] font-bold flex-shrink-0">1</span> Capital Overview</li>
+            <li class="flex items-center gap-3 text-sm text-alknz-muted"><span class="w-6 h-6 rounded-full bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 text-[10px] font-bold flex-shrink-0">2</span> Task Manager</li>
+            <li class="flex items-center gap-3 text-sm text-alknz-muted"><span class="w-6 h-6 rounded-full bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 text-[10px] font-bold flex-shrink-0">3</span> Investor Profiles</li>
+            <li class="flex items-center gap-3 text-sm text-alknz-muted"><span class="w-6 h-6 rounded-full bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 text-[10px] font-bold flex-shrink-0">4</span> Fundraising Pipeline</li>
+            <li class="flex items-center gap-3 text-sm text-alknz-muted"><span class="w-6 h-6 rounded-full bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 text-[10px] font-bold flex-shrink-0">5</span> Communication Center</li>
+            <li class="flex items-center gap-3 text-sm text-alknz-muted"><span class="w-6 h-6 rounded-full bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 text-[10px] font-bold flex-shrink-0">6</span> Research Capture</li>
+            <li class="flex items-center gap-3 text-sm text-alknz-muted"><span class="w-6 h-6 rounded-full bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 text-[10px] font-bold flex-shrink-0">7</span> Personas</li>
+          </ul>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <div class="card pad">
-        <div class="kicker">7 Tabs</div>
-        <h2>Navigation</h2>
-        <ul>
-          <li>1 — Capital Overview</li>
-          <li>2 — Task Manager</li>
-          <li>3 — Investor Profiles</li>
-          <li>4 — Fundraising Pipeline</li>
-          <li>5 — Communication Center</li>
-          <li>6 — Research Capture</li>
-          <li>7 — Personas</li>
-        </ul>
-      </div>
-    </section>
+  <!-- ── Tabs ── -->
+  <div class="max-w-7xl mx-auto px-6 space-y-6 pb-20">
 
     <!-- Tab 1 -->
-    <section class="grid">
-      <div class="card pad col-12">
-        <div class="kicker">Tab 1 — Capital Overview</div>
-        <h2>Live fund metrics</h2>
-        <p>The first screen after Fund Manager login. Updates immediately as stages/ticket sizes change.</p>
-
-        <div class="grid" style="margin-top:12px">
-          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
-            <h3>What you see</h3>
-            <ul>
-              <li><b>4 KPI cards</b>: Target Raise, Total Committed, Total Funded, % to Close</li>
-              <li>Ticket size distribution chart (capital by size bucket)</li>
-              <li>Stage funnel (investor count per pipeline stage)</li>
-            </ul>
-          </div>
-          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
-            <h3>How to use it</h3>
-            <ul>
-              <li>Use funnel to find bottlenecks (where investors stall)</li>
-              <li>Use distribution to see if raise is reliant on whales vs broad base</li>
-              <li>Keep ticket sizes updated; everything aggregates from that number</li>
-            </ul>
-          </div>
+    <div class="glass-panel rounded-2xl p-7 border border-alknz-border">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="chip bg-indigo-500/10 border border-indigo-500/20 text-indigo-400">Tab 1</div>
+        <h2 class="text-xl font-bold text-white">Capital Overview — Live fund metrics</h2>
+      </div>
+      <p class="text-alknz-muted text-sm mb-5">The first screen after Fund Manager login. Updates immediately as stages and ticket sizes change.</p>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="text-sm font-bold text-white mb-2">What you see</h3>
+          <ul class="text-sm text-alknz-muted space-y-1.5">
+            <li><strong class="text-white">4 KPI cards</strong> — Target Raise, Total Committed, Total Funded, % to Close</li>
+            <li>Ticket size distribution chart (capital grouped by investment size bucket)</li>
+            <li>Stage funnel — investor count per pipeline stage</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-sm font-bold text-white mb-2">How to use it</h3>
+          <ul class="text-sm text-alknz-muted space-y-1.5">
+            <li>Use the funnel to find bottlenecks (where investors stall)</li>
+            <li>Use the distribution to see if raise relies on whales vs broad base</li>
+            <li>Keep ticket sizes updated — everything aggregates from that number</li>
+          </ul>
         </div>
       </div>
-    </section>
+    </div>
 
     <!-- Tab 2 -->
-    <section class="grid">
-      <div class="card pad col-12">
-        <div class="kicker">Tab 2 — Task Manager</div>
-        <h2>All tasks in one list</h2>
-        <p>The bell icon shows a live count of open tasks.</p>
-
-        <div class="grid" style="margin-top:12px">
-          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
-            <h3>What you see</h3>
-            <ul>
-              <li>Investor name, task description, type (⚡ Auto / Manual)</li>
-              <li>Priority (high/medium/low), due date, completion checkbox</li>
-            </ul>
-          </div>
-          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
-            <h3>Task types</h3>
-            <ul>
-              <li><b>⚡ Auto</b>: generated when investor moves stages (standard checklist)</li>
-              <li><b>Manual</b>: created via +, link to investor, set due date/priority/notes</li>
-              <li>Filter by investor, stage, priority, completion</li>
-            </ul>
-          </div>
+    <div class="glass-panel rounded-2xl p-7 border border-alknz-border">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="chip bg-indigo-500/10 border border-indigo-500/20 text-indigo-400">Tab 2</div>
+        <h2 class="text-xl font-bold text-white">Task Manager — All tasks in one list</h2>
+      </div>
+      <p class="text-alknz-muted text-sm mb-5">The bell icon in the dashboard header shows a live count of open tasks.</p>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="text-sm font-bold text-white mb-2">What you see</h3>
+          <ul class="text-sm text-alknz-muted space-y-1.5">
+            <li>Investor name, task description, type (⚡ Auto / Manual)</li>
+            <li>Priority (high / medium / low), due date, completion checkbox</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-sm font-bold text-white mb-2">Task types</h3>
+          <ul class="text-sm text-alknz-muted space-y-1.5">
+            <li><strong class="text-white">⚡ Auto</strong> — generated when investor moves stages (standard checklist for that stage)</li>
+            <li><strong class="text-white">Manual</strong> — created via +, link to investor, set due date / priority / notes</li>
+            <li>Filter by investor, stage, priority, or completion status</li>
+          </ul>
         </div>
       </div>
-    </section>
+    </div>
 
     <!-- Tab 3 -->
-    <section class="grid">
-      <div class="card pad col-12">
-        <div class="kicker">Tab 3 — Investor Profiles</div>
-        <h2>Fund investor database</h2>
-
-        <div class="grid" style="margin-top:12px">
-          <div class="card pad col-12" style="background:rgba(8,15,27,.45)">
-            <h3>List columns</h3>
-            <ul>
-              <li>Name, investor type, nationality, pipeline stage</li>
-              <li>Relationship strength badge, expected ticket size</li>
-              <li>Persona match % badge</li>
-            </ul>
-          </div>
-
-          <div class="card pad col-12" style="background:rgba(8,15,27,.45)">
-            <h3>Investor detail panel (4 tabs)</h3>
-            <table class="table" style="margin-top:10px">
-              <thead>
-                <tr><th>Tab</th><th>What’s inside</th></tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><b>Identity</b></td>
-                  <td>Full name, type, nationality, age, job title, firm, LinkedIn, wealth level</td>
-                </tr>
-                <tr>
-                  <td><b>Context</b></td>
-                  <td>Relationship strength, decision role, preferences (sectors, check size, geography), notes</td>
-                </tr>
-                <tr>
-                  <td><b>Contact</b></td>
-                  <td>Primary email + up to 4 secondary emails, phone, WhatsApp, point of contact</td>
-                </tr>
-                <tr>
-                  <td><b>Personas</b></td>
-                  <td>AI match score progress bars for each persona; updates after analysis runs</td>
-                </tr>
-              </tbody>
-            </table>
-
-            <div class="hr"></div>
-            <p class="tiny"><b>Edit mode:</b> Click Edit → modify fields → Save to apply immediately.</p>
-          </div>
+    <div class="glass-panel rounded-2xl p-7 border border-alknz-border">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="chip bg-indigo-500/10 border border-indigo-500/20 text-indigo-400">Tab 3</div>
+        <h2 class="text-xl font-bold text-white">Investor Profiles — Fund investor database</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6 mb-6">
+        <div>
+          <h3 class="text-sm font-bold text-white mb-2">List columns</h3>
+          <ul class="text-sm text-alknz-muted space-y-1.5">
+            <li>Name, investor type, nationality, pipeline stage</li>
+            <li>Relationship strength badge, expected ticket size</li>
+            <li>Persona match % badge</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-sm font-bold text-white mb-2">Edit mode</h3>
+          <p class="text-sm text-alknz-muted">Click <strong class="text-white">Edit</strong> in the top-right corner of the profile panel → modify any field → <strong class="text-white">Save</strong> to apply immediately.</p>
         </div>
       </div>
-    </section>
+      <h3 class="text-sm font-bold text-white mb-3">Investor detail panel — 4 tabs</h3>
+      <div class="rounded-xl overflow-hidden border border-alknz-border">
+        <table class="tbl">
+          <thead><tr><th>Tab</th><th>What's inside</th></tr></thead>
+          <tbody>
+            <tr><td class="font-semibold text-white">Identity</td><td>Full name, type, nationality, age, job title, firm, LinkedIn URL, wealth level</td></tr>
+            <tr><td class="font-semibold text-white">Context</td><td>Relationship strength, decision role, investment preferences (sectors, check size, geography), notes</td></tr>
+            <tr><td class="font-semibold text-white">Contact</td><td>Primary email + up to 4 secondary emails, phone, WhatsApp, point of contact</td></tr>
+            <tr><td class="font-semibold text-white">Personas</td><td>AI match score progress bars for each persona; updates after analysis runs</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
     <!-- Tab 4 -->
-    <section class="grid">
-      <div class="card pad col-12">
-        <div class="kicker">Tab 4 — Fundraising Pipeline</div>
-        <h2>13-stage Kanban board</h2>
-
-        <div class="grid" style="margin-top:12px">
-          <div class="card pad col-12" style="background:rgba(8,15,27,.45)">
-            <h3>Stages</h3>
-            <table class="table" style="margin-top:10px">
-              <thead>
-                <tr><th>#</th><th>Stage</th><th>#</th><th>Stage</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>1</td><td>Prospects</td><td>8</td><td>Follow Up Email</td></tr>
-                <tr><td>2</td><td>Investors</td><td>9</td><td>Signing Contract</td></tr>
-                <tr><td>3</td><td>Intro Email</td><td>10</td><td>Signing Subscription</td></tr>
-                <tr><td>4</td><td>Opportunity Email</td><td>11</td><td>Letter for Capital Call</td></tr>
-                <tr><td>5</td><td>Phone Call</td><td>12</td><td>Money Transfer</td></tr>
-                <tr><td>6</td><td>First Meeting</td><td>13</td><td>Transfer Date</td></tr>
-                <tr><td>7</td><td>Second Meeting</td><td>—</td><td>—</td></tr>
-              </tbody>
-            </table>
-
-            <div class="hr"></div>
-            <h3>What you can do</h3>
-            <ul>
-              <li>Drag & drop investor cards between stages (saves instantly)</li>
-              <li>Auto-tasks are created when cards move stages</li>
-              <li>Scroll horizontally to view all stages</li>
-            </ul>
-          </div>
+    <div class="glass-panel rounded-2xl p-7 border border-alknz-border">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="chip bg-indigo-500/10 border border-indigo-500/20 text-indigo-400">Tab 4</div>
+        <h2 class="text-xl font-bold text-white">Fundraising Pipeline — 13-stage Kanban board</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6 mb-6">
+        <div>
+          <h3 class="text-sm font-bold text-white mb-2">What you can do</h3>
+          <ul class="text-sm text-alknz-muted space-y-1.5">
+            <li><strong class="text-white">Drag & drop</strong> investor cards between stage columns — saves instantly</li>
+            <li>Auto-tasks for the new stage are created in Task Manager the moment a card is dropped</li>
+            <li>Scroll horizontally to navigate all 13 stages</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-sm font-bold text-white mb-2">Investor cards show</h3>
+          <ul class="text-sm text-alknz-muted space-y-1.5">
+            <li>Name, expected ticket size, relationship strength badge</li>
+            <li>Stage column header shows investor count for that stage</li>
+          </ul>
         </div>
       </div>
-    </section>
+      <h3 class="text-sm font-bold text-white mb-3">All 13 stages</h3>
+      <div class="rounded-xl overflow-hidden border border-alknz-border">
+        <table class="tbl">
+          <thead><tr><th>#</th><th>Stage</th><th>#</th><th>Stage</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Prospects</td><td>8</td><td>Follow Up Email</td></tr>
+            <tr><td>2</td><td>Investors</td><td>9</td><td>Signing Contract</td></tr>
+            <tr><td>3</td><td>Intro Email</td><td>10</td><td>Signing Subscription</td></tr>
+            <tr><td>4</td><td>Opportunity Email</td><td>11</td><td>Letter for Capital Call</td></tr>
+            <tr><td>5</td><td>Phone Call</td><td>12</td><td>Money Transfer</td></tr>
+            <tr><td>6</td><td>First Meeting</td><td>13</td><td>Transfer Date</td></tr>
+            <tr><td>7</td><td>Second Meeting</td><td>—</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
     <!-- Tab 5 -->
-    <section class="grid">
-      <div class="card pad col-12">
-        <div class="kicker">Tab 5 — Communication Center</div>
-        <h2>Inbox + Call Logs + Templates</h2>
-
-        <div class="grid" style="margin-top:12px">
-          <div class="card pad col-4" style="background:rgba(8,15,27,.45)">
-            <h3>Inbox</h3>
-            <ul>
-              <li>Connect Gmail via OAuth (Settings → Gmail → Connect)</li>
-              <li>Investor emails auto-tagged by matched addresses</li>
-              <li>Compose/reply inside the portal</li>
-            </ul>
-          </div>
-          <div class="card pad col-4" style="background:rgba(8,15,27,.45)">
-            <h3>Call Logs</h3>
-            <ul>
-              <li>Log calls: investor, date, outcome, notes, next steps</li>
-              <li>Optional: auto-create follow-up task linked to the investor</li>
-            </ul>
-          </div>
-          <div class="card pad col-4" style="background:rgba(8,15,27,.45)">
-            <h3>Templates</h3>
-            <ul>
-              <li>Email templates with merge vars:</li>
-              <li><code>{{investor_name}}</code>, <code>{{fund_name}}</code>, <code>{{ticket_size}}</code></li>
-              <li>Select template when composing → auto-populates</li>
-            </ul>
-          </div>
+    <div class="glass-panel rounded-2xl p-7 border border-alknz-border">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="chip bg-indigo-500/10 border border-indigo-500/20 text-indigo-400">Tab 5</div>
+        <h2 class="text-xl font-bold text-white">Communication Center — Inbox · Call Logs · Templates</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div>
+          <h3 class="text-sm font-bold text-white mb-2 flex items-center gap-2"><i class="fa-solid fa-inbox text-indigo-400 text-xs"></i> Inbox</h3>
+          <ul class="text-sm text-alknz-muted space-y-1.5">
+            <li>Connect Gmail via OAuth (Settings → Gmail → Connect)</li>
+            <li>Investor emails auto-tagged by matched addresses</li>
+            <li>Compose and reply without leaving the portal</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-sm font-bold text-white mb-2 flex items-center gap-2"><i class="fa-solid fa-phone text-indigo-400 text-xs"></i> Call Logs</h3>
+          <ul class="text-sm text-alknz-muted space-y-1.5">
+            <li>Log calls: investor, date, outcome (Interested / No Answer / Connected / Follow-Up Needed), notes</li>
+            <li>Toggle auto-create follow-up task linked to the investor</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-sm font-bold text-white mb-2 flex items-center gap-2"><i class="fa-solid fa-envelope text-indigo-400 text-xs"></i> Templates</h3>
+          <ul class="text-sm text-alknz-muted space-y-1.5">
+            <li>Reusable email templates with merge variables</li>
+            <li><code class="text-xs bg-alknz-surface border border-alknz-border px-1 py-0.5 rounded">{{investor_name}}</code> <code class="text-xs bg-alknz-surface border border-alknz-border px-1 py-0.5 rounded">{{fund_name}}</code> <code class="text-xs bg-alknz-surface border border-alknz-border px-1 py-0.5 rounded">{{ticket_size}}</code></li>
+            <li>Select a template when composing → auto-populates all fields</li>
+          </ul>
         </div>
       </div>
-    </section>
+    </div>
 
     <!-- Tab 6 -->
-    <section class="grid">
-      <div class="card pad col-12">
-        <div class="kicker">Tab 6 — Research Capture</div>
-        <h2>Review Chrome Extension captures</h2>
-
-        <div class="grid" style="margin-top:12px">
-          <div class="card pad col-12" style="background:rgba(8,15,27,.45)">
-            <h3>Accept flow</h3>
-            <ol style="margin:10px 0 0; padding-left:18px; color:var(--muted)">
-              <li>Select a fund from dropdown on the capture card</li>
-              <li>Click <b>Accept</b></li>
-              <li>Investor is created immediately</li>
-              <li>Portal switches to Investor Profiles and opens the new profile automatically</li>
-            </ol>
-
-            <div class="hr"></div>
-            <h3>Reject</h3>
-            <p>Reject discards the capture with an optional reason. Rejected stays archived with status.</p>
-          </div>
+    <div class="glass-panel rounded-2xl p-7 border border-alknz-border">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="chip bg-indigo-500/10 border border-indigo-500/20 text-indigo-400">Tab 6</div>
+        <h2 class="text-xl font-bold text-white">Research Capture — Review Chrome Extension captures</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="text-sm font-bold text-white mb-2">What you see</h3>
+          <ul class="text-sm text-alknz-muted space-y-1.5">
+            <li>Capture card: source URL, capture date, extracted fields (name, firm, job title, LinkedIn, emails, phone)</li>
+            <li>Status: Pending / Accepted / Rejected</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-sm font-bold text-white mb-2">Accept flow</h3>
+          <ol class="text-sm text-alknz-muted space-y-1.5 list-decimal list-inside">
+            <li>Select a fund from the dropdown on the capture card</li>
+            <li>Click <strong class="text-white">Accept</strong></li>
+            <li>Investor is created in the fund's database immediately</li>
+            <li>Dashboard switches to Investor Profiles and opens the new profile automatically</li>
+          </ol>
         </div>
       </div>
-    </section>
+    </div>
 
     <!-- Tab 7 -->
-    <section class="grid">
-      <div class="card pad col-12">
-        <div class="kicker">Tab 7 — Personas</div>
-        <h2>Define archetypes + score investors (0–100%)</h2>
-
-        <div class="grid" style="margin-top:12px">
-          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
-            <h3>What you can do</h3>
-            <ul>
-              <li><b>Create Persona</b>: type, nationalities, sectors, age range, ticket size range</li>
-              <li><b>Run AI Analysis</b>: scores every investor vs every persona (0–100%)</li>
-              <li><b>Analyze & Suggest</b>: AI suggests archetypes not covered by existing personas</li>
-            </ul>
-          </div>
-          <div class="card pad col-6" style="background:rgba(8,15,27,.45)">
-            <h3>Where scores appear</h3>
-            <ul>
-              <li>Investor list: badge %</li>
-              <li>Investor detail: Personas tab progress bars</li>
-              <li>Use <b>50%+</b> as “match” threshold for coverage tracking</li>
-            </ul>
-          </div>
+    <div class="glass-panel rounded-2xl p-7 border border-alknz-border">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="chip bg-indigo-500/10 border border-indigo-500/20 text-indigo-400">Tab 7</div>
+        <h2 class="text-xl font-bold text-white">Personas — Define archetypes + score investors (0–100%)</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="text-sm font-bold text-white mb-2">What you can do</h3>
+          <ul class="text-sm text-alknz-muted space-y-1.5">
+            <li><strong class="text-white">Create Persona</strong> — type, nationalities, sectors, age range, ticket size range</li>
+            <li><strong class="text-white">Run AI Analysis</strong> — scores every investor vs every persona (0–100%)</li>
+            <li><strong class="text-white">Analyze & Suggest</strong> — AI suggests archetypes not covered by existing personas</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-sm font-bold text-white mb-2">Where scores appear</h3>
+          <ul class="text-sm text-alknz-muted space-y-1.5">
+            <li>Investor list: badge % on each investor card</li>
+            <li>Investor detail panel → Personas tab: progress bars per persona</li>
+            <li>Use <strong class="text-white">50%+</strong> as the "match" threshold for coverage tracking</li>
+          </ul>
         </div>
       </div>
-    </section>
+    </div>
 
-    <footer class="footer">
-      <div>© 2026 ALKNZ Ventures — Fund Manager Guide</div>
-      <div><a href="chrome-extension.html">Next: Chrome Extension Guide →</a></div>
-    </footer>
-  </main>
+    <!-- Next -->
+    <div class="bg-blue-900/10 border border-blue-500/20 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div>
+        <div class="text-blue-400 font-bold text-xs uppercase tracking-[0.3em] mb-2">Up Next</div>
+        <div class="text-xl font-bold text-white">Chrome Extension Guide</div>
+        <div class="text-sm text-alknz-muted mt-1">How to install, capture investors from the web, and send them into the portal.</div>
+      </div>
+      <a href="extension.html" class="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-bold text-sm uppercase tracking-wide flex items-center gap-2 transition-all whitespace-nowrap">
+        Extension Guide <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
 
-  <script src="assets/app.js"></script>
+  </div>
+</main>
+
+<!-- ── Footer ── -->
+<footer class="bg-black border-t border-alknz-border py-10 relative z-10">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+    <div class="flex items-center gap-2">
+      <div class="w-6 h-6 bg-blue-600 rounded flex items-center justify-center text-white font-bold text-[10px]">A</div>
+      <span class="text-sm font-bold tracking-widest text-white uppercase">ALKNZ</span>
+    </div>
+    <div class="flex gap-6 text-xs text-slate-600 font-bold uppercase tracking-widest">
+      <a href="index.html" class="hover:text-white transition-colors">Overview</a>
+      <a href="admin.html" class="hover:text-white transition-colors">Admin</a>
+      <a href="extension.html" class="hover:text-white transition-colors">Extension</a>
+      <a href="demo.html" class="hover:text-white transition-colors">Demo</a>
+    </div>
+    <div class="text-[10px] font-bold text-slate-600 uppercase tracking-widest">© 2026 ALKNZ Ventures | Internal</div>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
 </body>
 </html>

@@ -1,142 +1,282 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>ALKZN Portal — Chrome Extension Guide</title>
+  <title>ALKNZ Portal — Chrome Extension Guide</title>
   <meta name="description" content="How to install and use the ALKNZ Chrome Extension (Manifest V3) to capture investors into the portal."/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <link rel="stylesheet" href="assets/style.css"/>
+
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: { alknz: { bg:'#020408', surface:'#0f172a', border:'#1e293b', primary:'#3b82f6', accent:'#6366f1', text:'#f8fafc', muted:'#94a3b8' } },
+        fontFamily: { sans:['Inter','sans-serif'] }
+      }}
+    }
+  </script>
 </head>
-<body>
-  <header class="topbar">
-    <div class="topbar-inner">
-      <div class="brand">
-        <span class="brand-badge" aria-hidden="true"></span>
-        <span>ALKNZ Portal</span>
-        <span class="pill"><span class="dot"></span>chrome extension</span>
+<body class="antialiased min-h-screen flex flex-col">
+
+<!-- ── Nav ── -->
+<nav class="fixed top-0 w-full z-50 glass-panel border-b border-alknz-border">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+    <a href="index.html" class="flex items-center gap-3">
+      <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center shadow-lg shadow-blue-500/20">
+        <span class="text-white font-bold text-xl">A</span>
       </div>
-      <nav>
-        <a href="index.html">Overview</a>
-        <a href="admin.html">Admin</a>
-        <a href="fund-manager.html">Fund Manager</a>
-        <a href="extension.html">Chrome Extension</a>
-        <a href="demo.html">Demo</a>
-      </nav>
+      <div class="flex flex-col">
+        <span class="text-xl font-bold tracking-widest text-white">ALKNZ</span>
+        <span class="text-[10px] text-alknz-muted tracking-[0.2em] uppercase">Extension Guide</span>
+      </div>
+    </a>
+    <div class="hidden md:flex items-center gap-8 text-xs font-bold uppercase tracking-widest text-alknz-muted">
+      <a href="index.html"        class="nav-item hover:text-white transition-colors py-2">Overview</a>
+      <a href="admin.html"        class="nav-item hover:text-white transition-colors py-2">Admin</a>
+      <a href="fund-manager.html" class="nav-item hover:text-white transition-colors py-2">Fund Manager</a>
+      <a href="extension.html"    class="nav-item hover:text-white transition-colors py-2">Extension</a>
+      <a href="demo.html"         class="nav-item hover:text-white transition-colors py-2">Demo</a>
     </div>
-  </header>
+    <a href="https://alknz-web.onrender.com/login" target="_blank" rel="noopener noreferrer"
+       class="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-lg transition-all shadow-lg shadow-blue-600/20 text-xs font-bold uppercase tracking-wide flex items-center gap-2">
+      Open Portal <i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i>
+    </a>
+  </div>
+</nav>
 
-  <main class="wrap">
-    <section class="hero">
-      <div>
-        <div class="kicker">ALKNZ-Extension-v12</div>
-        <h1>Chrome Extension<br/>How it works</h1>
-        <p class="sub">
-          Captures investor profiles from the web and sends them to the portal for review in
-          <b>Research Capture</b> (Fund Manager) and <b>Investor Requests</b> (Admin).
-        </p>
+<main class="relative z-10 flex-grow pt-20">
 
-        <div class="btn-row">
-          <a class="btn primary" target="_blank" rel="noopener noreferrer" href="https://alknz-web.onrender.com/login">Open Portal Login</a>
-          <a class="btn" target="_blank" rel="noopener noreferrer" href="https://github.com/msallam227/alknz-fm-portal">Portal Repo</a>
-          <a class="btn ghost" target="_blank" rel="noopener noreferrer" href="https://alknz-chrome-extension.vercel.app/index.html">Extension Docs (reference)</a>
-        </div>
-
-        <div class="hr"></div>
-
-        <div class="callout">
-          <div class="tiny">
-            Folder: <code>ALKNZ-Extension-v12/</code> • Chrome • Manifest V3
+  <!-- ── Hero ── -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
+        <div class="animate-fade-in">
+          <span class="text-blue-500 font-bold text-xs uppercase tracking-[0.3em] block mb-4">ALKNZ-Extension-v12 · Chrome · Manifest V3</span>
+          <h1 class="text-5xl font-bold leading-tight mb-5">
+            Chrome Extension<br/><span class="gradient-text">How it works</span>
+          </h1>
+          <p class="text-alknz-muted text-lg leading-relaxed mb-8 max-w-lg">
+            Captures investor profiles from the web and sends them to the portal for review in
+            <strong class="text-white">Research Capture</strong> (Fund Manager) and <strong class="text-white">Investor Requests</strong> (Admin).
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a href="https://alknz-web.onrender.com/login" target="_blank" rel="noopener noreferrer"
+               class="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-bold text-sm uppercase tracking-wide flex items-center gap-2 transition-all shadow-xl shadow-blue-600/25">
+              <i class="fa-solid fa-right-to-bracket"></i> Open Portal Login
+            </a>
+            <a href="https://github.com/msallam227/alknz-fm-portal" target="_blank" rel="noopener noreferrer"
+               class="px-6 py-3 bg-alknz-surface hover:bg-slate-800 text-white rounded-xl font-bold text-sm uppercase tracking-wide flex items-center gap-2 border border-alknz-border transition-all">
+              <i class="fa-brands fa-github"></i> Portal Repo
+            </a>
+            <a href="https://alknz-chrome-extension.vercel.app/index.html" target="_blank" rel="noopener noreferrer"
+               class="px-6 py-3 bg-alknz-surface hover:bg-slate-800 text-white rounded-xl font-bold text-sm uppercase tracking-wide flex items-center gap-2 border border-alknz-border transition-all">
+              <i class="fa-brands fa-chrome"></i> Extension Docs
+            </a>
           </div>
         </div>
+        <div class="glass-panel rounded-2xl p-7 animate-fade-in" style="animation-delay:.1s">
+          <span class="text-blue-500 font-bold text-xs uppercase tracking-[0.3em] block mb-4">Purpose</span>
+          <h2 class="text-xl font-bold text-white mb-4">One clean pipeline</h2>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3 text-sm text-alknz-muted">
+              <i class="fa-solid fa-arrow-right text-blue-400 text-xs mt-1"></i>
+              Capture from LinkedIn and any webpage
+            </li>
+            <li class="flex items-start gap-3 text-sm text-alknz-muted">
+              <i class="fa-solid fa-arrow-right text-blue-400 text-xs mt-1"></i>
+              Enrich with notes and relationship context
+            </li>
+            <li class="flex items-start gap-3 text-sm text-alknz-muted">
+              <i class="fa-solid fa-arrow-right text-blue-400 text-xs mt-1"></i>
+              Upload to portal → review → accept into a specific fund
+            </li>
+          </ul>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <div class="card pad">
-        <div class="kicker">Purpose</div>
-        <h2>One clean pipeline</h2>
-        <ul>
-          <li>Capture from LinkedIn and any webpage</li>
-          <li>Enrich with notes + relationship context</li>
-          <li>Upload to portal → review → accept into a specific fund</li>
-        </ul>
+  <!-- ── Install ── -->
+  <section class="py-16 border-t border-alknz-border/60">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-10">
+        <span class="text-blue-500 font-bold text-xs uppercase tracking-[0.3em] block mb-3">Install</span>
+        <h2 class="text-3xl font-bold text-white">Load unpacked extension</h2>
       </div>
-    </section>
-
-    <!-- Install -->
-    <section class="grid">
-      <div class="card pad col-12">
-        <div class="kicker">Install</div>
-        <h2>Load unpacked extension</h2>
-        <ol style="margin:10px 0 0; padding-left:18px; color:var(--muted)">
-          <li>Open <code>chrome://extensions/</code></li>
-          <li>Enable <b>Developer Mode</b> (top-right)</li>
-          <li>Click <b>Load unpacked</b> → select <code>ALKNZ-Extension-v12/</code></li>
-          <li>Pin the ALKNZ icon to toolbar</li>
-          <li>Right-click icon → <b>Options</b> → set Backend URL → log in with portal credentials</li>
-          <li>Click <b>Test Connection</b> → should show “Connected ✓”</li>
+      <div class="glass-panel rounded-2xl p-8 max-w-3xl mx-auto">
+        <ol class="space-y-5">
+          <li class="flex items-start gap-4">
+            <div class="step-num bg-blue-600 text-sm">1</div>
+            <div>
+              <div class="text-sm font-bold text-white mb-1">Open Extensions</div>
+              <p class="text-sm text-alknz-muted">Navigate to <code class="bg-alknz-surface border border-alknz-border px-1.5 py-0.5 rounded text-blue-300">chrome://extensions/</code> in Chrome.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-4">
+            <div class="step-num bg-blue-600 text-sm">2</div>
+            <div>
+              <div class="text-sm font-bold text-white mb-1">Enable Developer Mode</div>
+              <p class="text-sm text-alknz-muted">Toggle <strong class="text-white">Developer Mode</strong> on (top-right corner of the extensions page).</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-4">
+            <div class="step-num bg-blue-600 text-sm">3</div>
+            <div>
+              <div class="text-sm font-bold text-white mb-1">Load Unpacked</div>
+              <p class="text-sm text-alknz-muted">Click <strong class="text-white">Load unpacked</strong> → select the <code class="bg-alknz-surface border border-alknz-border px-1.5 py-0.5 rounded text-blue-300">ALKNZ-Extension-v12/</code> folder.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-4">
+            <div class="step-num bg-blue-600 text-sm">4</div>
+            <div>
+              <div class="text-sm font-bold text-white mb-1">Pin the icon</div>
+              <p class="text-sm text-alknz-muted">Click the puzzle icon in Chrome's toolbar and pin the ALKNZ extension.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-4">
+            <div class="step-num bg-blue-600 text-sm">5</div>
+            <div>
+              <div class="text-sm font-bold text-white mb-1">Configure</div>
+              <p class="text-sm text-alknz-muted">Right-click the ALKNZ icon → <strong class="text-white">Options</strong> → set Backend URL → log in with your portal credentials.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-4">
+            <div class="step-num bg-blue-600 text-sm">6</div>
+            <div>
+              <div class="text-sm font-bold text-white mb-1">Test Connection</div>
+              <p class="text-sm text-alknz-muted">Click <strong class="text-white">Test Connection</strong> — should show "Connected ✓" with your investor count.</p>
+            </div>
+          </li>
         </ol>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Capture flow -->
-    <section class="grid">
-      <div class="card pad col-12">
-        <div class="kicker">Capture Flow</div>
-        <h2>From web → portal → fund</h2>
-        <ol style="margin:10px 0 0; padding-left:18px; color:var(--muted)">
-          <li>Open a LinkedIn profile / company page (or any investor bio page)</li>
-          <li>Click ALKNZ icon → side panel opens</li>
-          <li>Extension auto-extracts: name, job title, firm, LinkedIn URL</li>
-          <li>Add notes + relationship context + missing fields</li>
-          <li>Click <b>Upload to Portal</b></li>
-          <li>Portal → <b>Research Capture</b> (FM) → capture appears as pending</li>
-          <li>Select a fund → click <b>Accept</b> → investor created and profile opens automatically</li>
+  <!-- ── Capture Flow ── -->
+  <section class="py-16 border-t border-alknz-border/60">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-10">
+        <span class="text-blue-500 font-bold text-xs uppercase tracking-[0.3em] block mb-3">Capture Flow</span>
+        <h2 class="text-3xl font-bold text-white">From web → portal → fund</h2>
+      </div>
+      <div class="glass-panel rounded-2xl p-8 max-w-3xl mx-auto">
+        <ol class="space-y-5">
+          <li class="flex items-start gap-4">
+            <div class="step-num bg-indigo-600 text-sm">1</div>
+            <div class="text-sm text-alknz-muted">Open a LinkedIn profile / company page (or any investor bio page)</div>
+          </li>
+          <li class="flex items-start gap-4">
+            <div class="step-num bg-indigo-600 text-sm">2</div>
+            <div class="text-sm text-alknz-muted">Click the ALKNZ icon to open the side panel</div>
+          </li>
+          <li class="flex items-start gap-4">
+            <div class="step-num bg-indigo-600 text-sm">3</div>
+            <div class="text-sm text-alknz-muted">Extension auto-extracts: name, job title, firm, LinkedIn URL — fields appear pre-filled</div>
+          </li>
+          <li class="flex items-start gap-4">
+            <div class="step-num bg-indigo-600 text-sm">4</div>
+            <div class="text-sm text-alknz-muted">Add notes + relationship context + any missing fields</div>
+          </li>
+          <li class="flex items-start gap-4">
+            <div class="step-num bg-indigo-600 text-sm">5</div>
+            <div class="text-sm text-alknz-muted">Click <strong class="text-white">Upload to Portal</strong> — success confirmation appears in the panel</div>
+          </li>
+          <li class="flex items-start gap-4">
+            <div class="step-num bg-indigo-600 text-sm">6</div>
+            <div class="text-sm text-alknz-muted">Portal → <strong class="text-white">Research Capture</strong> (FM) or <strong class="text-white">Investor Requests</strong> (Admin) → capture appears as pending</div>
+          </li>
+          <li class="flex items-start gap-4">
+            <div class="step-num bg-indigo-600 text-sm">7</div>
+            <div class="text-sm text-alknz-muted">Select a fund → click <strong class="text-white">Accept</strong> → investor is created and the profile opens automatically</div>
+          </li>
         </ol>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- What it captures -->
-    <section class="grid">
-      <div class="card pad col-12">
-        <div class="kicker">What it captures</div>
-        <h2>Fields</h2>
-        <table class="table" style="margin-top:10px">
-          <thead>
-            <tr><th>Field</th><th>Source</th></tr>
-          </thead>
+  <!-- ── What it captures ── -->
+  <section class="py-16 border-t border-alknz-border/60">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-10">
+        <span class="text-blue-500 font-bold text-xs uppercase tracking-[0.3em] block mb-3">Fields</span>
+        <h2 class="text-3xl font-bold text-white">What it captures</h2>
+      </div>
+      <div class="glass-panel rounded-2xl overflow-hidden max-w-3xl mx-auto">
+        <table class="tbl">
+          <thead><tr><th>Field</th><th>Source</th></tr></thead>
           <tbody>
-            <tr><td>Full name</td><td>Page text / LinkedIn header</td></tr>
-            <tr><td>Job title</td><td>LinkedIn headline</td></tr>
-            <tr><td>Firm / Organisation</td><td>LinkedIn company or page title</td></tr>
-            <tr><td>LinkedIn URL</td><td>Current page URL</td></tr>
-            <tr><td>Email addresses</td><td>Visible contact info on page</td></tr>
-            <tr><td>Phone number</td><td>Visible contact info on page</td></tr>
-            <tr><td>Notes</td><td>Manually entered in side panel</td></tr>
-            <tr><td>Relationship context</td><td>Manually selected (cold / warm / direct)</td></tr>
+            <tr><td class="font-semibold text-white">Full name</td><td>Page text / LinkedIn header</td></tr>
+            <tr><td class="font-semibold text-white">Job title</td><td>LinkedIn headline</td></tr>
+            <tr><td class="font-semibold text-white">Firm / Organisation</td><td>LinkedIn company or page title</td></tr>
+            <tr><td class="font-semibold text-white">LinkedIn URL</td><td>Current page URL</td></tr>
+            <tr><td class="font-semibold text-white">Email addresses</td><td>Visible contact info on page</td></tr>
+            <tr><td class="font-semibold text-white">Phone number</td><td>Visible contact info on page</td></tr>
+            <tr><td class="font-semibold text-white">Notes</td><td>Manually entered in side panel</td></tr>
+            <tr><td class="font-semibold text-white">Relationship context</td><td>Manually selected (cold / warm / direct)</td></tr>
           </tbody>
         </table>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Compatible sites -->
-    <section class="grid">
-      <div class="card pad col-12">
-        <div class="kicker">Compatible sites</div>
-        <h2>Works best on</h2>
-        <ul>
-          <li>LinkedIn profiles and company pages</li>
-          <li>Company websites</li>
-          <li>Conference attendee pages</li>
-          <li>News articles and bios</li>
-        </ul>
+  <!-- ── Compatible sites ── -->
+  <section class="py-16 border-t border-alknz-border/60">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-10">
+        <span class="text-blue-500 font-bold text-xs uppercase tracking-[0.3em] block mb-3">Compatible Sites</span>
+        <h2 class="text-3xl font-bold text-white">Works best on</h2>
       </div>
-    </section>
+      <div class="grid md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+        <div class="glass-panel rounded-xl p-5 text-center border border-alknz-border">
+          <i class="fa-brands fa-linkedin text-blue-400 text-2xl mb-2 block"></i>
+          <div class="text-sm font-bold text-white">LinkedIn</div>
+          <div class="text-xs text-alknz-muted mt-1">Profiles + company pages</div>
+        </div>
+        <div class="glass-panel rounded-xl p-5 text-center border border-alknz-border">
+          <i class="fa-solid fa-building text-indigo-400 text-2xl mb-2 block"></i>
+          <div class="text-sm font-bold text-white">Company Sites</div>
+          <div class="text-xs text-alknz-muted mt-1">Team and about pages</div>
+        </div>
+        <div class="glass-panel rounded-xl p-5 text-center border border-alknz-border">
+          <i class="fa-solid fa-calendar text-sky-400 text-2xl mb-2 block"></i>
+          <div class="text-sm font-bold text-white">Conferences</div>
+          <div class="text-xs text-alknz-muted mt-1">Attendee pages</div>
+        </div>
+        <div class="glass-panel rounded-xl p-5 text-center border border-alknz-border">
+          <i class="fa-solid fa-newspaper text-emerald-400 text-2xl mb-2 block"></i>
+          <div class="text-sm font-bold text-white">News / Bios</div>
+          <div class="text-xs text-alknz-muted mt-1">Articles and profiles</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <footer class="footer">
-      <div>© 2026 ALKNZ Ventures — Extension Guide</div>
-      <div><a href="admin.html">Back to Admin Guide</a></div>
-    </footer>
-  </main>
+</main>
 
-  <script src="assets/app.js"></script>
+<!-- ── Footer ── -->
+<footer class="bg-black border-t border-alknz-border py-10 relative z-10">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+    <div class="flex items-center gap-2">
+      <div class="w-6 h-6 bg-blue-600 rounded flex items-center justify-center text-white font-bold text-[10px]">A</div>
+      <span class="text-sm font-bold tracking-widest text-white uppercase">ALKNZ</span>
+    </div>
+    <div class="flex gap-6 text-xs text-slate-600 font-bold uppercase tracking-widest">
+      <a href="index.html" class="hover:text-white transition-colors">Overview</a>
+      <a href="admin.html" class="hover:text-white transition-colors">Admin</a>
+      <a href="fund-manager.html" class="hover:text-white transition-colors">Fund Manager</a>
+      <a href="demo.html" class="hover:text-white transition-colors">Demo</a>
+    </div>
+    <div class="text-[10px] font-bold text-slate-600 uppercase tracking-widest">© 2026 ALKNZ Ventures | Internal</div>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
 </body>
 </html>
