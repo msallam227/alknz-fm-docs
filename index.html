@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>ALKZN Portal — How to Use</title>
+  <title>ALKNZ Portal — Overview</title>
   <meta name="description" content="How to use the ALKNZ Fund Manager Portal: Admin + Fund Manager workflows, features, and Chrome Extension."/>
   <link rel="stylesheet" href="assets/style.css"/>
 </head>
@@ -13,13 +13,14 @@
       <div class="brand">
         <span class="brand-badge" aria-hidden="true"></span>
         <span>ALKNZ Portal</span>
-        <span class="pill"><span class="dot"></span>feature reference</span>
+        <span class="pill"><span class="dot"></span>internal docs</span>
       </div>
       <nav>
-        <a href="index.html">Overview</a>
+        <a href="index.html" class="active">Overview</a>
         <a href="admin.html">Admin</a>
         <a href="fund-manager.html">Fund Manager</a>
-        <a href="chrome-extension.html">Chrome Extension</a>
+        <a href="extension.html">Chrome Extension</a>
+        <a href="demo.html">Demo</a>
       </nav>
     </div>
   </header>
@@ -30,22 +31,42 @@
         <div class="kicker">Internal docs</div>
         <h1>How to use the<br/>Fund Manager Portal</h1>
         <p class="sub">
-          This guide explains what each module does, what each role can see, and how the Chrome Extension
-          feeds investor research into the portal.
+          This guide covers every module, every role, and how the Chrome Extension feeds investor
+          research into the portal. Pick a section below or open the portal to explore live.
         </p>
 
         <div class="btn-row">
           <a class="btn primary" target="_blank" rel="noopener noreferrer" href="https://alknz-web.onrender.com/login">Open Portal Login</a>
           <a class="btn" target="_blank" rel="noopener noreferrer" href="https://github.com/msallam227/alknz-fm-portal">View GitHub Repo</a>
-          <a class="btn ghost" target="_blank" rel="noopener noreferrer" href="https://alknz-chrome-extension.vercel.app/index.html">Extension Docs Style Ref</a>
+          <a class="btn ghost" target="_blank" rel="noopener noreferrer" href="https://alknz-chrome-extension.vercel.app/index.html">Chrome Extension</a>
         </div>
 
         <div class="hr"></div>
 
         <div class="callout">
           <div class="tiny">
-            The portal is role-based: Admin has global visibility across all funds/users/investors.
-            Fund Managers only see data for funds assigned to them (fully isolated).
+            The portal is role-based: <b>Admin</b> has global visibility across all funds, users, and investors.
+            <b>Fund Managers</b> only see data for funds assigned to them — fully isolated.
+          </div>
+        </div>
+
+        <!-- Stats strip -->
+        <div class="stats-strip">
+          <div class="stat-block">
+            <div class="stat-num">9</div>
+            <div class="stat-label">Admin Modules</div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-num">7</div>
+            <div class="stat-label">FM Dashboard Tabs</div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-num">13</div>
+            <div class="stat-label">Pipeline Stages</div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-num">MV3</div>
+            <div class="stat-label">Chrome Extension</div>
           </div>
         </div>
       </div>
@@ -55,7 +76,7 @@
         <h2>Start here (60 seconds)</h2>
         <ul>
           <li>Open <code>/login</code> and sign in with a demo role.</li>
-          <li>Admins: confirm Users/Funds/Assignments are configured.</li>
+          <li>Admins: confirm Users, Funds, and Assignments are configured.</li>
           <li>Fund Managers: select a fund in the header, then operate within the 7 tabs.</li>
           <li>Use the Chrome Extension to capture investors and review them in <b>Research Capture</b>.</li>
         </ul>
@@ -88,13 +109,32 @@
             </div>
           </div>
         </div>
+
+        <div class="hr"></div>
+        <h3>Pre-loaded demo data</h3>
+        <ul style="margin-top:6px">
+          <li><b>12 GCC investors</b> across all 13 pipeline stages</li>
+          <li><b>26 tasks</b> — auto-generated + manual</li>
+          <li><b>2 investor personas</b> with AI scoring</li>
+          <li><b>4 call logs</b> and <b>4 email templates</b></li>
+          <li>Fund: Watheeq Proptech SPV II (SAR 50M target)</li>
+        </ul>
       </div>
     </section>
 
+    <!-- Module overview cards -->
     <section class="grid">
       <div class="card pad col-4" style="background:rgba(8,15,27,.45)">
         <h3>Admin Dashboard</h3>
-        <p>Global health check + governance: Users, Funds, Assignments, All Investors, Duplicate Detection, Requests, Analytics, Feedback.</p>
+        <p style="margin-bottom:10px">Global governance and visibility across all funds, users, and investors.</p>
+        <ul style="margin-bottom:14px">
+          <li>Real-time KPI cards + fund health table</li>
+          <li>Create users, funds, and fund assignments</li>
+          <li>Cross-fund investor search and filtering</li>
+          <li>AI-powered duplicate detection and merging</li>
+          <li>Review Chrome Extension captures (Investor Requests)</li>
+          <li>Platform-wide persona analytics and feedback responses</li>
+        </ul>
         <div class="btn-row">
           <a class="btn small" href="admin.html">Open Admin Guide</a>
         </div>
@@ -102,7 +142,15 @@
 
       <div class="card pad col-4" style="background:rgba(8,15,27,.45)">
         <h3>Fund Manager Dashboard</h3>
-        <p>Fund-scoped execution: Capital Overview, Tasks, Investor Profiles, Pipeline, Comms, Research Capture, Personas.</p>
+        <p style="margin-bottom:10px">Fund-scoped execution across 7 tabs — all data isolated per fund.</p>
+        <ul style="margin-bottom:14px">
+          <li>Capital Overview: live raise metrics and stage funnel</li>
+          <li>Task Manager: auto + manual tasks with priorities</li>
+          <li>Investor Profiles: 4-tab detail panel (Identity, Context, Contact, Personas)</li>
+          <li>Fundraising Pipeline: 13-stage Kanban with drag-and-drop</li>
+          <li>Communication Center: Gmail inbox, call logs, email templates</li>
+          <li>Research Capture + AI Persona scoring (0–100%)</li>
+        </ul>
         <div class="btn-row">
           <a class="btn small" href="fund-manager.html">Open FM Guide</a>
         </div>
@@ -110,10 +158,45 @@
 
       <div class="card pad col-4" style="background:rgba(8,15,27,.45)">
         <h3>Chrome Extension</h3>
-        <p>Capture investor profiles from the web and send them into the portal’s Research Capture flow.</p>
+        <p style="margin-bottom:10px">Capture investor profiles from any webpage and send them to the portal.</p>
+        <ul style="margin-bottom:14px">
+          <li>Works on LinkedIn profiles, company pages, and bios</li>
+          <li>Auto-extracts name, job title, firm, and LinkedIn URL</li>
+          <li>Add notes and relationship context before uploading</li>
+          <li>Captures appear instantly in Research Capture (FM) and Investor Requests (Admin)</li>
+          <li>Accept flow creates the investor and opens their profile automatically</li>
+        </ul>
         <div class="btn-row">
-          <a class="btn small" href="chrome-extension.html">Open Extension Guide</a>
+          <a class="btn small" href="extension.html">Open Extension Guide</a>
         </div>
+      </div>
+    </section>
+
+    <!-- Role comparison -->
+    <section class="grid">
+      <div class="card pad col-12">
+        <div class="kicker">Role comparison</div>
+        <h2>Admin vs Fund Manager</h2>
+        <table class="table" style="margin-top:12px">
+          <thead>
+            <tr>
+              <th>Capability</th>
+              <th>Admin</th>
+              <th>Fund Manager</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>See all funds</td><td><span class="badge success">Yes</span></td><td><span class="badge">Assigned only</span></td></tr>
+            <tr><td>Create / edit funds</td><td><span class="badge success">Yes</span></td><td><span class="badge">No</span></td></tr>
+            <tr><td>Create users</td><td><span class="badge success">Yes</span></td><td><span class="badge">No</span></td></tr>
+            <tr><td>Assign managers to funds</td><td><span class="badge success">Yes</span></td><td><span class="badge">No</span></td></tr>
+            <tr><td>Cross-fund investor search</td><td><span class="badge success">Yes</span></td><td><span class="badge">No</span></td></tr>
+            <tr><td>Duplicate detection</td><td><span class="badge success">Yes</span></td><td><span class="badge">No</span></td></tr>
+            <tr><td>Investor Requests (extension captures)</td><td><span class="badge success">Yes</span></td><td>Via Research Capture</td></tr>
+            <tr><td>Pipeline, tasks, comms</td><td><span class="badge">No</span></td><td><span class="badge success">Yes</span></td></tr>
+            <tr><td>AI Persona scoring</td><td>Analytics only</td><td><span class="badge success">Run + view scores</span></td></tr>
+          </tbody>
+        </table>
       </div>
     </section>
 

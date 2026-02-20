@@ -4,28 +4,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Try the Demo — ALKNZ Portal</title>
+  <meta name="description" content="Try the ALKNZ Fund Manager Portal live. Pre-loaded with GCC demo data. No setup required."/>
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
 
 <!-- ── Navigation ──────────────────────────────────────────────────────── -->
-<nav class="nav">
-  <a href="index.html" class="nav-brand">
-    <div class="nav-logo">A</div>
-    <span class="nav-wordmark">ALKNZ</span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="index.html">About</a></li>
-    <li><a href="admin.html">Admin</a></li>
-    <li><a href="fund-manager.html">Fund Manager</a></li>
-    <li><a href="extension.html">Extension</a></li>
-    <li><a href="demo.html" class="active">Demo</a></li>
-  </ul>
-  <a href="YOUR_PORTAL_URL" target="_blank" class="btn btn-primary nav-cta">Sign In →</a>
-</nav>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="brand-badge" aria-hidden="true"></span>
+      <span>ALKNZ Portal</span>
+      <span class="pill"><span class="dot"></span>live demo</span>
+    </div>
+    <nav>
+      <a href="index.html">Overview</a>
+      <a href="admin.html">Admin</a>
+      <a href="fund-manager.html">Fund Manager</a>
+      <a href="extension.html">Chrome Extension</a>
+      <a href="demo.html">Demo</a>
+    </nav>
+  </div>
+</header>
 
 <!-- ── Hero ─────────────────────────────────────────────────────────────── -->
-<section class="hero">
+<div class="demo-hero">
   <div class="hero-badge">🚀 Live Demo</div>
   <h1>Try <span class="gradient">ALKNZ</span> Right Now</h1>
   <p>
@@ -36,7 +39,7 @@
     <a href="#credentials" class="btn btn-primary">Get Credentials ↓</a>
     <a href="#admin-tour" class="btn btn-outline">See What to Explore ↓</a>
   </div>
-</section>
+</div>
 
 <!-- ── Credentials ────────────────────────────────────────────────────────── -->
 <section class="section" id="credentials" style="padding-top: 2.5rem; padding-bottom: 2.5rem;">
@@ -54,7 +57,7 @@
       </div>
       <div class="cred-field">
         <label>Name</label>
-        <code style="color:var(--text-muted); background:none; border:none; padding:0; font-size:0.88rem;">Demo Admin</code>
+        <code style="color:var(--muted); background:none; border:none; padding:0; font-size:0.88rem;">Demo Admin</code>
       </div>
       <div class="cred-field">
         <label>Email</label>
@@ -64,8 +67,10 @@
         <label>Password</label>
         <code>Demo@Admin1</code>
       </div>
-      <div style="margin-top: 1rem;">
-        <a href="YOUR_PORTAL_URL" target="_blank" class="btn btn-primary" style="width:100%; justify-content:center; font-size:0.85rem;">Sign In as Admin →</a>
+      <div style="margin-top: 1rem; display:flex; gap:8px; flex-wrap:wrap;">
+        <a href="https://alknz-web.onrender.com/login" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="flex:1; justify-content:center; font-size:0.85rem;">Sign In as Admin →</a>
+        <button class="btn small" data-copy="admin@demo.alknz.io">Copy Email</button>
+        <button class="btn small" data-copy="Demo@Admin1">Copy PW</button>
       </div>
     </div>
     <div class="cred-card">
@@ -75,7 +80,7 @@
       </div>
       <div class="cred-field">
         <label>Name</label>
-        <code style="color:var(--text-muted); background:none; border:none; padding:0; font-size:0.88rem;">Sara Al-Rashid</code>
+        <code style="color:var(--muted); background:none; border:none; padding:0; font-size:0.88rem;">Sara Al-Rashid</code>
       </div>
       <div class="cred-field">
         <label>Email</label>
@@ -85,8 +90,10 @@
         <label>Password</label>
         <code>Demo@FM2024</code>
       </div>
-      <div style="margin-top: 1rem;">
-        <a href="YOUR_PORTAL_URL" target="_blank" class="btn btn-primary" style="width:100%; justify-content:center; font-size:0.85rem;">Sign In as Fund Manager →</a>
+      <div style="margin-top: 1rem; display:flex; gap:8px; flex-wrap:wrap;">
+        <a href="https://alknz-web.onrender.com/login" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="flex:1; justify-content:center; font-size:0.85rem;">Sign In as Fund Manager →</a>
+        <button class="btn small" data-copy="sara@demo.alknz.io">Copy Email</button>
+        <button class="btn small" data-copy="Demo@FM2024">Copy PW</button>
       </div>
     </div>
   </div>
@@ -96,11 +103,11 @@
     <div class="callout-body">
       <h4>What's pre-loaded</h4>
       <p>
-        Sara's account: <strong style="color:var(--text-white);">12 GCC investors</strong> across all 13 pipeline stages &nbsp;·&nbsp;
-        <strong style="color:var(--text-white);">26 tasks</strong> (auto + manual) &nbsp;·&nbsp;
-        <strong style="color:var(--text-white);">2 investor personas</strong> &nbsp;·&nbsp;
-        <strong style="color:var(--text-white);">4 call logs</strong> &nbsp;·&nbsp;
-        <strong style="color:var(--text-white);">4 email templates</strong> &nbsp;·&nbsp;
+        Sara's account: <strong style="color:var(--text);">12 GCC investors</strong> across all 13 pipeline stages &nbsp;·&nbsp;
+        <strong style="color:var(--text);">26 tasks</strong> (auto + manual) &nbsp;·&nbsp;
+        <strong style="color:var(--text);">2 investor personas</strong> &nbsp;·&nbsp;
+        <strong style="color:var(--text);">4 call logs</strong> &nbsp;·&nbsp;
+        <strong style="color:var(--text);">4 email templates</strong> &nbsp;·&nbsp;
         Fund: Watheeq Proptech SPV II (SAR 50M target)
       </p>
     </div>
@@ -114,7 +121,7 @@
   <div class="section-header">
     <span class="section-label">Admin Tour</span>
     <h2>What to explore as Admin</h2>
-    <p>Sign in as <strong style="color:var(--text-white);">admin@demo.alknz.io</strong> and follow these steps to see the full admin picture.</p>
+    <p>Sign in as <strong style="color:var(--text);">admin@demo.alknz.io</strong> and follow these steps to see the full admin picture.</p>
   </div>
 
   <div class="demo-role-block" style="max-width: 780px; margin: 0 auto;">
@@ -124,7 +131,7 @@
         <h3>Admin Account</h3>
         <p>admin@demo.alknz.io &nbsp;/&nbsp; Demo@Admin1</p>
       </div>
-      <a href="YOUR_PORTAL_URL" target="_blank" class="btn btn-outline" style="margin-left:auto; font-size:0.8rem; padding:0.4rem 1rem;">Sign In →</a>
+      <a href="https://alknz-web.onrender.com/login" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="margin-left:auto; font-size:0.8rem; padding:0.4rem 1rem;">Sign In →</a>
     </div>
     <div class="demo-steps-list">
 
@@ -195,7 +202,7 @@
   <div class="section-header">
     <span class="section-label">Fund Manager Tour</span>
     <h2>What to explore as Fund Manager</h2>
-    <p>Sign in as <strong style="color:var(--text-white);">sara@demo.alknz.io</strong> and follow these steps — each one explores a different tab of the dashboard.</p>
+    <p>Sign in as <strong style="color:var(--text);">sara@demo.alknz.io</strong> and follow these steps — each one explores a different tab of the dashboard.</p>
   </div>
 
   <div class="demo-role-block" style="max-width: 780px; margin: 0 auto;">
@@ -205,7 +212,7 @@
         <h3>Fund Manager — Sara Al-Rashid</h3>
         <p>sara@demo.alknz.io &nbsp;/&nbsp; Demo@FM2024</p>
       </div>
-      <a href="YOUR_PORTAL_URL" target="_blank" class="btn btn-outline" style="margin-left:auto; font-size:0.8rem; padding:0.4rem 1rem;">Sign In →</a>
+      <a href="https://alknz-web.onrender.com/login" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="margin-left:auto; font-size:0.8rem; padding:0.4rem 1rem;">Sign In →</a>
     </div>
     <div class="demo-steps-list">
 
@@ -245,7 +252,7 @@
         <div class="demo-step-num" style="background: linear-gradient(135deg, #0047AB, #0052CC);">5</div>
         <div>
           <h5>Communication Center — Read call logs and templates</h5>
-          <p>Click Communications → Call Logs. You'll see 4 logged calls with outcomes (Interested, Follow-Up Needed, etc.) and notes. Click Templates — 4 email templates are pre-loaded: Intro Email, Follow-Up, Meeting Request, and Capital Call Letter. Click one to see how merge variables like {{investor_name}} work.</p>
+          <p>Click Communications → Call Logs. You'll see 4 logged calls with outcomes (Interested, Follow-Up Needed, etc.) and notes. Click Templates — 4 email templates are pre-loaded: Intro Email, Follow-Up, Meeting Request, and Capital Call Letter. Click one to see how merge variables like <code>{{investor_name}}</code> work.</p>
         </div>
       </div>
 
@@ -281,33 +288,33 @@
 
   <div class="demo-role-block" style="max-width: 780px; margin: 0 auto;">
     <div class="demo-role-header">
-      <div class="demo-role-icon" style="background: rgba(0,71,171,0.12);">🔌</div>
+      <div class="demo-role-icon" style="background: rgba(124,99,244,0.12);">🔌</div>
       <div>
         <h3>Chrome Extension — Full Flow</h3>
-        <p>Requires Chrome browser &nbsp;·&nbsp; Extension folder: <code style="font-size:0.78rem; background:var(--bg-deep); border:1px solid var(--border); padding:0.1rem 0.4rem; border-radius:4px; color:var(--accent);">ALKNZ-Extension-v12/</code></p>
+        <p>Requires Chrome browser &nbsp;·&nbsp; Extension folder: <code>ALKNZ-Extension-v12/</code></p>
       </div>
       <a href="extension.html" class="btn btn-outline" style="margin-left:auto; font-size:0.8rem; padding:0.4rem 1rem;">Install Guide →</a>
     </div>
     <div class="demo-steps-list">
 
       <div class="demo-step-item">
-        <div class="demo-step-num" style="background: linear-gradient(135deg, #0047AB, #00A3FF);">1</div>
+        <div class="demo-step-num" style="background: linear-gradient(135deg, #7C63F4, #3B82F6);">1</div>
         <div>
           <h5>Install the extension</h5>
-          <p>In Chrome, go to <code style="font-size:0.78rem; background:var(--bg-deep); border:1px solid var(--border); padding:0.1rem 0.4rem; border-radius:4px; color:var(--accent);">chrome://extensions/</code>, enable Developer Mode, click Load Unpacked, and select the <code style="font-size:0.78rem; background:var(--bg-deep); border:1px solid var(--border); padding:0.1rem 0.4rem; border-radius:4px; color:var(--accent);">ALKNZ-Extension-v12/</code> folder from the project directory. Pin the ALKNZ icon to your toolbar. See the full <a href="extension.html" style="color:var(--accent);">Install Guide →</a> for detailed steps.</p>
+          <p>In Chrome, go to <code>chrome://extensions/</code>, enable Developer Mode, click Load Unpacked, and select the <code>ALKNZ-Extension-v12/</code> folder from the project directory. Pin the ALKNZ icon to your toolbar. See the full <a href="extension.html" style="color:var(--accent);">Install Guide →</a> for detailed steps.</p>
         </div>
       </div>
 
       <div class="demo-step-item">
-        <div class="demo-step-num" style="background: linear-gradient(135deg, #0047AB, #00A3FF);">2</div>
+        <div class="demo-step-num" style="background: linear-gradient(135deg, #7C63F4, #3B82F6);">2</div>
         <div>
           <h5>Open Options and log in as Sara</h5>
-          <p>Right-click the ALKNZ icon → Options. Set Backend URL to <code style="font-size:0.78rem; background:var(--bg-deep); border:1px solid var(--border); padding:0.1rem 0.4rem; border-radius:4px; color:var(--accent);">http://localhost:8000</code> (or your deployed backend address). Click Log In and enter Sara's credentials: <strong style="color:var(--text-white);">sara@demo.alknz.io</strong> / <strong style="color:var(--text-white);">Demo@FM2024</strong>. Click Test Connection — you should see ✓ Connected with the investor count.</p>
+          <p>Right-click the ALKNZ icon → Options. Set Backend URL to your deployed backend address. Click Log In and enter Sara's credentials: <strong style="color:var(--text);">sara@demo.alknz.io</strong> / <strong style="color:var(--text);">Demo@FM2024</strong>. Click Test Connection — you should see ✓ Connected with the investor count.</p>
         </div>
       </div>
 
       <div class="demo-step-item">
-        <div class="demo-step-num" style="background: linear-gradient(135deg, #0047AB, #00A3FF);">3</div>
+        <div class="demo-step-num" style="background: linear-gradient(135deg, #7C63F4, #3B82F6);">3</div>
         <div>
           <h5>Visit a LinkedIn profile and open the side panel</h5>
           <p>Navigate to any LinkedIn person profile in Chrome (e.g. search for a VC investor in the GCC). Click the ALKNZ icon in the toolbar to open the side panel. The extension automatically extracts the person's name, job title, firm, and LinkedIn URL from the page — fields appear pre-filled in the panel.</p>
@@ -315,7 +322,7 @@
       </div>
 
       <div class="demo-step-item">
-        <div class="demo-step-num" style="background: linear-gradient(135deg, #0047AB, #00A3FF);">4</div>
+        <div class="demo-step-num" style="background: linear-gradient(135deg, #7C63F4, #3B82F6);">4</div>
         <div>
           <h5>Add context and upload</h5>
           <p>In the side panel, set the relationship strength (cold / warm / direct), add a note about where you met this person or why they're relevant, and fill in any missing fields. When ready, click Upload to Portal. A success confirmation appears in the panel.</p>
@@ -323,7 +330,7 @@
       </div>
 
       <div class="demo-step-item">
-        <div class="demo-step-num" style="background: linear-gradient(135deg, #0047AB, #00A3FF);">5</div>
+        <div class="demo-step-num" style="background: linear-gradient(135deg, #7C63F4, #3B82F6);">5</div>
         <div>
           <h5>Accept in the portal and see the investor appear</h5>
           <p>Switch to the portal tab, log in as Sara, and go to Research Capture. The capture you just uploaded appears as a pending card with all extracted fields. Select Watheeq Proptech SPV II from the fund dropdown, then click Accept. The dashboard automatically switches to Investor Profiles and opens the new investor's detail panel — ready for you to complete their profile.</p>
@@ -350,12 +357,12 @@
       <p>Open the admin account in one browser window and Sara's account in another. Actions Sara takes (capturing, accepting, moving stages) appear in real time on the admin side.</p>
     </div>
     <div class="card">
-      <div class="card-icon" style="background: rgba(245,158,11,0.12);">⚡</div>
+      <div class="card-icon" style="background: rgba(242,201,76,0.12);">⚡</div>
       <h3>Watch auto-tasks appear</h3>
       <p>In the Pipeline tab, drag an investor card to a new stage. Then immediately switch to Task Manager — the auto-generated tasks for that stage appear at the top of the list within seconds.</p>
     </div>
     <div class="card">
-      <div class="card-icon" style="background: rgba(139,92,246,0.12);">🎭</div>
+      <div class="card-icon" style="background: rgba(124,99,244,0.12);">🎭</div>
       <h3>Run a full AI persona analysis</h3>
       <p>In the Personas tab, click Run AI Analysis. After it completes, browse the investor list — every card now has a persona match % badge. Click any investor and open their Personas sub-tab to see the detailed score breakdown.</p>
     </div>
@@ -368,7 +375,7 @@
     <h2>Ready? Sign in and explore.</h2>
     <p>Everything is pre-loaded. No setup, no configuration — just log in and start exploring the platform end to end.</p>
     <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-top:1.5rem;">
-      <a href="YOUR_PORTAL_URL" target="_blank" class="btn btn-primary" style="font-size:0.95rem; padding: 0.75rem 1.75rem;">
+      <a href="https://alknz-web.onrender.com/login" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size:0.95rem; padding: 0.75rem 1.75rem;">
         Sign In to Portal →
       </a>
       <a href="fund-manager.html" class="btn btn-outline" style="font-size:0.95rem; padding: 0.75rem 1.75rem;">
@@ -382,14 +389,15 @@
 </section>
 
 <!-- ── Footer ─────────────────────────────────────────────────────────────── -->
-<footer>
-  <p>Built by <strong>ALKNZ Ventures</strong> &nbsp;·&nbsp;
-  <a href="index.html">About</a> &nbsp;·&nbsp;
+<footer style="max-width:var(--max); margin:0 auto; padding:20px;">
+  <p>© 2026 ALKNZ Ventures &nbsp;·&nbsp;
+  <a href="index.html">Overview</a> &nbsp;·&nbsp;
   <a href="admin.html">Admin Guide</a> &nbsp;·&nbsp;
   <a href="fund-manager.html">FM Guide</a> &nbsp;·&nbsp;
   <a href="extension.html">Chrome Extension</a>
   </p>
 </footer>
 
+<script src="assets/app.js"></script>
 </body>
 </html>
